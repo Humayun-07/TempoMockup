@@ -1,0 +1,1860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Tempo — Full Product Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Display:wght@400;700&family=Roboto:wght@300;400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+/* ── TOKENS ──────────────────────────────────────────────────── */
+:root {
+  --p40:#6750A4; --p90:#EADDFF; --p95:#F6EDFF; --p20:#381E72; --p10:#21005D;
+  --s40:#007EB5; --s90:#DCF2FF; --s10:#001B3F;
+  --t40:#006C51; --t90:#ACF2D8; --t95:#D4FAF0;
+  --w40:#F9A825; --w90:#FFF8E1;
+  --e40:#B3261E; --e90:#F9DEDC;
+  --n10:#1C1B1F; --n20:#313033; --n30:#484649; --n40:#605D62;
+  --n50:#787579; --n60:#939094; --n70:#AEAAAE; --n80:#CAC4D0;
+  --n90:#E6E0E9; --n95:#F4EFF4; --n99:#FFFBFE;
+  --surf:#FFFBFE; --surf-low:#F7F2FA; --surf-mid:#F3EDF7;
+  --surf-high:#ECE6F0; --surf-highest:#E6E0E9;
+  --outline:#79747E; --outline-v:#CAC4D0;
+  --font-d:'Google Sans Display',sans-serif;
+  --font-ui:'Google Sans',sans-serif;
+  --font-body:'Roboto',sans-serif;
+  --font-mono:'Roboto Mono',monospace;
+  --r4:4px; --r8:8px; --r12:12px; --r16:16px; --r28:28px; --rfull:999px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:14px}
+body{background:#0F0F12;font-family:var(--font-body);color:var(--n10);-webkit-font-smoothing:antialiased}
+
+/* ── OUTER SHELL ────────────────────────────────────────────── */
+.shell{display:flex;min-height:100vh}
+
+/* ── LEFT NAV ────────────────────────────────────────────────── */
+.leftnav{width:220px;flex-shrink:0;background:#18181C;border-right:1px solid #2A2A30;position:sticky;top:0;height:100vh;overflow-y:auto;padding:0 0 32px;display:flex;flex-direction:column}
+.leftnav-logo{display:flex;align-items:center;gap:10px;padding:24px 18px 20px;border-bottom:1px solid #2A2A30;margin-bottom:8px}
+.lmark{width:32px;height:32px;border-radius:var(--r8);background:var(--p40);display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:700;font-size:16px;color:#fff;flex-shrink:0}
+.lname{font-family:var(--font-d);font-size:17px;font-weight:700;color:#fff}
+.lsub{font-size:9px;color:#666;letter-spacing:.06em;margin-top:1px}
+.nav-sec{font-size:9px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#444;padding:14px 18px 5px}
+.nav-a{display:flex;align-items:center;gap:8px;padding:8px 14px 8px 18px;font-size:12px;color:#999;text-decoration:none;cursor:pointer;border-radius:0 var(--rfull) var(--rfull) 0;margin-right:10px;transition:all .15s;line-height:1.3}
+.nav-a:hover{background:#1E1E28;color:#ccc}
+.nav-a.active{background:var(--p90);color:var(--p20);font-weight:500}
+.nav-dot{width:5px;height:5px;border-radius:50%;background:var(--p40);flex-shrink:0}
+.nav-badge{margin-left:auto;background:#2A2A38;color:#666;font-size:9px;padding:1px 6px;border-radius:var(--rfull)}
+
+/* ── MAIN ───────────────────────────────────────────────────── */
+.main{flex:1;min-width:0;background:#F3EDF7}
+
+/* ── PAGE HERO ──────────────────────────────────────────────── */
+.page-hero{background:linear-gradient(135deg,var(--p20) 0%,#1A0050 50%,#003040 100%);padding:56px 64px 48px;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(103,80,164,.3) 0%,transparent 70%)}
+.page-hero::after{content:'';position:absolute;top:-40px;right:-40px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(78,160,180,.15) 0%,transparent 70%)}
+.hero-eyebrow{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:12px;position:relative;z-index:1}
+.hero-title{font-family:var(--font-d);font-size:48px;font-weight:700;color:#fff;letter-spacing:-1px;line-height:1.05;margin-bottom:10px;position:relative;z-index:1}
+.hero-title span{color:var(--t90)}
+.hero-sub{font-size:15px;color:rgba(255,255,255,.6);line-height:1.6;max-width:560px;position:relative;z-index:1}
+.hero-chips{display:flex;gap:8px;margin-top:20px;flex-wrap:wrap;position:relative;z-index:1}
+.hero-chip{font-size:11px;padding:4px 12px;border-radius:var(--rfull);background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.15)}
+
+/* ── SECTION ────────────────────────────────────────────────── */
+.section{padding:56px 64px;border-bottom:1px solid var(--outline-v)}
+.section:last-child{border-bottom:none}
+.sec-eyebrow{font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--p40);margin-bottom:4px}
+.sec-title{font-family:var(--font-d);font-size:28px;font-weight:700;color:var(--n10);letter-spacing:-.4px;margin-bottom:6px}
+.sec-desc{font-size:13px;color:var(--n40);line-height:1.7;max-width:640px;margin-bottom:32px}
+
+/* ── SCREEN FRAME ───────────────────────────────────────────── */
+.screen-frame{border-radius:var(--r16);overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.12),0 2px 8px rgba(0,0,0,.08);margin-bottom:16px}
+.screen-label{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--n50);margin-bottom:10px}
+.screen-note{font-size:11px;color:var(--n50);line-height:1.6;margin-top:8px}
+
+/* ── MOBILE FRAME ───────────────────────────────────────────── */
+.mobile-wrap{display:inline-flex;flex-direction:column;gap:0}
+.phone-shell{width:375px;background:#fff;border-radius:28px;overflow:hidden;box-shadow:0 16px 60px rgba(0,0,0,.18),0 4px 16px rgba(103,80,164,.15);border:1px solid var(--outline-v)}
+.phone-bar{background:#fff;padding:12px 20px 8px;display:flex;align-items:center;justify-content:space-between}
+.phone-time{font-family:var(--font-ui);font-size:13px;font-weight:500;color:var(--n10)}
+.phone-icons{display:flex;gap:4px;align-items:center;font-size:11px;color:var(--n30)}
+.phone-content{background:#fff}
+
+/* ── DESKTOP FRAME ──────────────────────────────────────────── */
+.desktop-shell{background:#fff;border-radius:var(--r16);overflow:hidden;box-shadow:0 12px 48px rgba(0,0,0,.14)}
+.desktop-topbar{background:#fff;border-bottom:1px solid var(--outline-v);padding:10px 20px;display:flex;align-items:center;gap:10px}
+.desktop-dots{display:flex;gap:5px}
+.desktop-dot{width:10px;height:10px;border-radius:50%}
+.desktop-url{flex:1;background:var(--surf-mid);border-radius:var(--rfull);padding:5px 14px;font-size:11px;color:var(--n40);font-family:var(--font-mono);text-align:center}
+.desktop-content{display:flex}
+
+/* ── APP SHELL ──────────────────────────────────────────────── */
+.app-nav-rail{width:72px;background:var(--surf-low);border-right:1px solid var(--outline-v);display:flex;flex-direction:column;align-items:center;padding:16px 0;gap:4px;min-height:600px}
+.rail-logo{width:36px;height:36px;border-radius:var(--r8);background:var(--p40);display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:700;font-size:17px;color:#fff;margin-bottom:12px}
+.rail-item{display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px;border-radius:var(--r16);width:64px;cursor:pointer}
+.rail-item.active{background:var(--p90)}
+.rail-icon{font-size:20px;line-height:1}
+.rail-label{font-size:9px;font-weight:500;color:var(--n50);text-align:center}
+.rail-item.active .rail-label{color:var(--p40)}
+.app-content{flex:1;background:var(--surf-mid);overflow:hidden}
+
+/* ── BOTTOM NAV ─────────────────────────────────────────────── */
+.bottom-nav{display:flex;background:#fff;border-top:1px solid var(--outline-v);padding:6px 0 12px}
+.bnav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer}
+.bnav-pill{width:60px;height:30px;border-radius:var(--rfull);display:flex;align-items:center;justify-content:center;font-size:17px}
+.bnav-item.active .bnav-pill{background:var(--p90)}
+.bnav-lbl{font-size:10px;font-weight:500;color:var(--n50)}
+.bnav-item.active .bnav-lbl{color:var(--p40)}
+
+/* ── REUSABLE UI ─────────────────────────────────────────────── */
+.btn{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-body);font-size:13px;font-weight:500;padding:10px 22px;border-radius:var(--rfull);border:none;cursor:pointer;letter-spacing:.01em;transition:all .15s}
+.btn-filled{background:var(--p40);color:#fff}
+.btn-filled:hover{box-shadow:0 2px 8px rgba(103,80,164,.4)}
+.btn-tonal{background:var(--p90);color:var(--p10)}
+.btn-outlined{background:transparent;color:var(--p40);border:1.5px solid var(--outline)}
+.btn-text{background:transparent;color:var(--p40);padding:10px 12px}
+.btn-err{background:var(--e40);color:#fff}
+.btn-sm{font-size:11px;padding:6px 14px}
+.btn-disabled{opacity:.38;pointer-events:none}
+
+.chip{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:500;padding:6px 14px;border-radius:var(--rfull);border:1.5px solid var(--outline-v);background:#fff;color:var(--n20);cursor:pointer;transition:all .12s}
+.chip.sel{background:var(--s90);color:var(--s10);border-color:var(--s40)}
+.chip-row{display:flex;flex-wrap:wrap;gap:8px}
+
+.badge{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:500;padding:3px 9px;border-radius:var(--rfull)}
+.b-health{background:#E8F5E9;color:#1B5E20}
+.b-admin{background:#E3F2FD;color:#0D47A1}
+.b-errand{background:#F3E5F5;color:#4A148C}
+.b-social{background:#FFF3E0;color:#E65100}
+.b-family{background:#FFF9C4;color:#F57F17}
+.b-rest{background:#FCE4EC;color:#880E4F}
+.b-learning{background:#E0F2F1;color:#004D40}
+.b-other{background:var(--n90);color:var(--n30)}
+.b-sched{background:var(--t95);color:var(--t40);border:1px solid var(--t90)}
+.b-defer{background:var(--n90);color:var(--n40)}
+.b-review{background:var(--w90);color:#5D4037}
+.b-kept{background:#E8F5E9;color:#1B5E20}
+.b-moved{background:#E3F2FD;color:#0D47A1}
+.b-deleted{background:var(--e90);color:var(--e40)}
+
+.field-wrap{display:flex;flex-direction:column;gap:4px}
+.field-label{font-size:11px;font-weight:500;color:var(--p40)}
+.field-input{background:var(--surf-highest);border:none;border-bottom:1.5px solid var(--n50);border-radius:var(--r8) var(--r8) 0 0;padding:14px 16px 8px;font-family:var(--font-body);font-size:13px;color:var(--n10);outline:none;width:100%}
+.field-input:focus{border-bottom:2px solid var(--p40)}
+.field-support{font-size:10px;color:var(--n50);padding-left:16px}
+
+.divider{height:1px;background:var(--outline-v);margin:8px 0}
+
+/* ── TASK CARD ───────────────────────────────────────────────── */
+.task-card{background:#fff;border:1px solid var(--outline-v);border-radius:var(--r16);padding:16px;position:relative;overflow:hidden;margin-bottom:8px}
+.task-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;border-radius:4px 0 0 4px}
+.tc-sched::before{background:var(--t40)}
+.tc-defer::before{background:var(--n60)}
+.tc-review::before{background:var(--w40)}
+.tc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px}
+.tc-title{font-family:var(--font-ui);font-size:14px;font-weight:500;color:var(--n10)}
+.tc-time{font-family:var(--font-mono);font-size:11px;color:var(--p40);font-weight:500}
+.tc-meta{display:flex;gap:8px;flex-wrap:wrap;font-size:11px;color:var(--n50);margin-bottom:8px}
+.tc-take{background:linear-gradient(135deg,var(--p95),var(--s90));border-radius:var(--r8);padding:9px 12px;font-size:11px;color:var(--p20);line-height:1.5;border-left:3px solid var(--p40);margin-bottom:10px}
+.tc-take strong{font-weight:500;display:block;margin-bottom:2px}
+.tc-take-collapsed{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--n40);margin-bottom:10px;cursor:pointer}
+.tc-take-collapsed:hover{color:var(--p40)}
+.tc-foot{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.tc-actions{margin-left:auto;display:flex;gap:6px}
+.tc-reason{font-size:11px;color:var(--n50);line-height:1.5;margin-bottom:10px;font-style:italic}
+
+/* ── PLAN CALENDAR GRID ─────────────────────────────────────── */
+.cal-grid{display:grid;grid-template-columns:48px repeat(7,1fr);gap:0;font-size:11px}
+.cal-head{background:var(--surf-low);border-bottom:1px solid var(--outline-v);position:sticky;top:0;z-index:2}
+.cal-head-cell{padding:8px 4px;text-align:center;font-weight:500;color:var(--n40);font-size:10px;border-right:1px solid var(--outline-v)}
+.cal-head-cell:last-child{border-right:none}
+.cal-head-cell.today{color:var(--p40)}
+.cal-head-date{font-size:18px;font-weight:500;color:var(--n10);line-height:1;margin-bottom:2px}
+.cal-head-cell.today .cal-head-date{width:32px;height:32px;background:var(--p40);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 2px}
+.cal-time{padding:0;background:var(--surf-low);border-right:1px solid var(--outline-v)}
+.cal-time-slot{height:48px;display:flex;align-items:flex-start;justify-content:flex-end;padding:2px 6px 0 0;font-size:10px;color:var(--n60);font-family:var(--font-mono);border-bottom:1px solid var(--outline-v)}
+.cal-col{border-right:1px solid var(--outline-v);position:relative}
+.cal-col:last-child{border-right:none}
+.cal-slot{height:48px;border-bottom:1px solid var(--outline-v)}
+.cal-event{position:absolute;left:2px;right:2px;border-radius:var(--r4);padding:3px 6px;font-size:10px;font-weight:500;overflow:hidden;cursor:pointer;z-index:1}
+.cal-event-work{background:var(--surf-highest);color:var(--n30);border-left:3px solid var(--n60)}
+.cal-event-tempo{background:var(--t95);color:var(--t40);border-left:3px solid var(--t40)}
+
+/* ── ONBOARDING ─────────────────────────────────────────────── */
+.onb-step{background:#fff;min-height:100vh}
+.onb-header{padding:24px 24px 0;display:flex;align-items:center;justify-content:space-between}
+.onb-logo{display:flex;align-items:center;gap:8px}
+.onb-logo-mark{width:28px;height:28px;border-radius:var(--r8);background:var(--p40);display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:700;font-size:14px;color:#fff}
+.onb-logo-name{font-family:var(--font-d);font-size:16px;font-weight:700;color:var(--n10)}
+.onb-skip{font-size:12px;color:var(--n50)}
+.progress-bar{height:3px;background:var(--n90);border-radius:var(--rfull);margin:20px 24px 0}
+.progress-fill{height:100%;background:var(--p40);border-radius:var(--rfull);transition:width .3s}
+.onb-body{padding:32px 24px}
+.onb-title{font-family:var(--font-d);font-size:24px;font-weight:700;color:var(--n10);letter-spacing:-.4px;margin-bottom:8px;line-height:1.2}
+.onb-sub{font-size:13px;color:var(--n40);line-height:1.6;margin-bottom:28px}
+.onb-cta{padding:20px 24px;border-top:1px solid var(--outline-v);background:#fff;display:flex;flex-direction:column;gap:8px}
+
+/* ── PRIVACY BOX ────────────────────────────────────────────── */
+.privacy-box{background:var(--s90);border-radius:var(--r12);padding:12px 14px;margin-bottom:16px;display:flex;gap:10px;align-items:flex-start}
+.privacy-icon{font-size:16px;margin-top:1px;flex-shrink:0}
+.privacy-text{font-size:11px;color:var(--s10);line-height:1.5}
+.privacy-text strong{font-weight:500;display:block;margin-bottom:2px}
+
+/* ── CALENDAR PICKER ─────────────────────────────────────────── */
+.cal-option{background:var(--surf-mid);border-radius:var(--r12);padding:12px 14px;margin-bottom:8px;display:flex;align-items:center;gap:12px;cursor:pointer;border:1.5px solid transparent;transition:all .15s}
+.cal-option.selected{border-color:var(--p40);background:var(--p95)}
+.cal-option-icon{font-size:20px;flex-shrink:0}
+.cal-option-text{flex:1}
+.cal-option-name{font-size:13px;font-weight:500;color:var(--n10)}
+.cal-option-email{font-size:11px;color:var(--n50)}
+.cal-option-check{width:20px;height:20px;border-radius:50%;border:2px solid var(--outline-v);display:flex;align-items:center;justify-content:center;font-size:10px}
+.cal-option.selected .cal-option-check{background:var(--p40);border-color:var(--p40);color:#fff}
+.cal-role-tag{font-size:9px;font-weight:500;padding:2px 7px;border-radius:var(--rfull);margin-top:3px;display:inline-block}
+.tag-read{background:var(--s90);color:var(--s10)}
+.tag-write{background:var(--t95);color:var(--t40)}
+
+/* ── PREFERENCE ITEMS ────────────────────────────────────────── */
+.pref-section{margin-bottom:24px}
+.pref-section-title{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--n50);margin-bottom:10px}
+.pref-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--outline-v)}
+.pref-row:last-child{border-bottom:none}
+.pref-label{font-size:13px;color:var(--n10)}
+.pref-sub{font-size:11px;color:var(--n50);margin-top:1px}
+.toggle{width:44px;height:24px;background:var(--n80);border-radius:var(--rfull);position:relative;cursor:pointer;flex-shrink:0}
+.toggle.on{background:var(--p40)}
+.toggle-knob{position:absolute;width:20px;height:20px;background:#fff;border-radius:50%;top:2px;left:2px;transition:left .2s;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.toggle.on .toggle-knob{left:22px}
+
+/* ── BRAIN DUMP ─────────────────────────────────────────────── */
+.dump-screen{background:var(--surf-mid);min-height:640px;display:flex;flex-direction:column}
+.dump-appbar{background:#fff;border-bottom:1px solid var(--outline-v);padding:12px 20px;display:flex;align-items:center;gap:10px}
+.dump-appbar-title{font-family:var(--font-ui);font-size:16px;font-weight:500;color:var(--n10)}
+.dump-week{font-size:11px;color:var(--n50);margin-left:auto}
+.dump-body{flex:1;padding:20px;display:flex;flex-direction:column;gap:12px}
+.dump-card{background:#fff;border-radius:var(--r16);padding:0;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.dump-textarea-wrap{padding:16px}
+.dump-prompt{font-family:var(--font-d);font-size:18px;font-weight:700;color:var(--n10);margin-bottom:4px;line-height:1.3}
+.dump-hint{font-size:12px;color:var(--n50);margin-bottom:12px;line-height:1.5}
+.dump-textarea{width:100%;border:none;outline:none;resize:none;font-family:var(--font-body);font-size:13px;color:var(--n10);line-height:1.6;min-height:120px;background:transparent}
+.dump-examples{padding:12px 16px;background:var(--surf-low);border-top:1px solid var(--outline-v);display:flex;flex-wrap:wrap;gap:6px}
+.dump-ex-label{font-size:10px;color:var(--n50);width:100%;margin-bottom:4px}
+.dump-ex-pill{font-size:11px;padding:4px 10px;background:#fff;border:1px solid var(--outline-v);border-radius:var(--rfull);color:var(--n30);cursor:pointer}
+.char-count{text-align:right;font-size:10px;color:var(--n60);padding:0 16px 10px;font-family:var(--font-mono)}
+
+/* ── LOADING / SKELETON ─────────────────────────────────────── */
+.skeleton{background:linear-gradient(90deg,var(--n90) 25%,var(--n95) 50%,var(--n90) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:var(--r4)}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.skel-line{height:12px;border-radius:var(--r4);margin-bottom:8px}
+.skel-title{height:18px;width:60%;border-radius:var(--r4);margin-bottom:12px}
+.loading-card{background:#fff;border-radius:var(--r16);padding:16px;margin-bottom:8px;border:1px solid var(--outline-v)}
+
+/* ── WEEKLY REVIEW ──────────────────────────────────────────── */
+.review-stat{background:#fff;border-radius:var(--r12);padding:14px;text-align:center;flex:1}
+.review-stat-num{font-family:var(--font-d);font-size:28px;font-weight:700;line-height:1}
+.review-stat-label{font-size:11px;color:var(--n50);margin-top:3px}
+.review-event-row{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--outline-v)}
+.review-event-row:last-child{border-bottom:none}
+.review-event-icon{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;margin-top:1px}
+.re-kept{background:#E8F5E9}
+.re-moved{background:#E3F2FD}
+.re-deleted{background:var(--e90)}
+.review-event-title{font-size:13px;font-weight:500;color:var(--n10)}
+.review-event-detail{font-size:11px;color:var(--n50);margin-top:2px}
+.reason-btn{display:inline-flex;align-items:center;gap:4px;font-size:11px;padding:6px 12px;border-radius:var(--rfull);background:var(--surf-mid);color:var(--n20);border:1px solid var(--outline-v);cursor:pointer;transition:all .12s}
+.reason-btn.sel{background:var(--p90);color:var(--p20);border-color:var(--p40)}
+.energy-btn{display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;padding:10px 6px;border-radius:var(--r12);background:var(--surf-mid);border:1.5px solid transparent;cursor:pointer;transition:all .15s}
+.energy-btn.sel{background:var(--p95);border-color:var(--p40)}
+.energy-icon{font-size:22px}
+.energy-label{font-size:10px;font-weight:500;color:var(--n40);text-align:center;line-height:1.3}
+
+/* ── CONFIRMATION SCREEN ────────────────────────────────────── */
+.confirm-circle{width:72px;height:72px;border-radius:50%;background:var(--t95);display:flex;align-items:center;justify-content:center;font-size:32px;margin:0 auto 16px}
+.confirm-event-row{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--surf-low);border-radius:var(--r8);margin-bottom:6px}
+.confirm-event-icon{width:32px;height:32px;border-radius:var(--r8);background:var(--t95);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.confirm-event-name{font-size:13px;font-weight:500;color:var(--n10)}
+.confirm-event-time{font-size:11px;color:var(--n50);margin-top:1px}
+.warn-circle{width:72px;height:72px;border-radius:50%;background:var(--w90);display:flex;align-items:center;justify-content:center;font-size:32px;margin:0 auto 16px}
+.failed-row{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--e90);border-radius:var(--r8);margin-bottom:8px;border:1px solid #FFCDD2}
+.failed-icon{font-size:18px;flex-shrink:0}
+.failed-text{flex:1;font-size:12px;color:var(--e40)}
+
+/* ── EMPTY STATES ────────────────────────────────────────────── */
+.empty-screen{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px 32px;text-align:center;min-height:400px}
+.empty-icon{width:72px;height:72px;border-radius:50%;background:var(--p95);display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:20px}
+.empty-title{font-family:var(--font-d);font-size:20px;font-weight:700;color:var(--n10);margin-bottom:8px;letter-spacing:-.3px}
+.empty-body{font-size:13px;color:var(--n40);line-height:1.6;max-width:260px;margin-bottom:24px}
+
+/* ── SETTINGS ────────────────────────────────────────────────── */
+.settings-group{background:#fff;border-radius:var(--r16);overflow:hidden;margin-bottom:12px;border:1px solid var(--outline-v)}
+.settings-group-title{font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--n50);padding:14px 16px 6px}
+.settings-row{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--outline-v);cursor:pointer}
+.settings-row:last-child{border-bottom:none}
+.settings-row:hover{background:var(--surf-low)}
+.settings-icon{font-size:18px;width:32px;text-align:center;flex-shrink:0}
+.settings-text{flex:1}
+.settings-label{font-size:13px;color:var(--n10)}
+.settings-sub{font-size:11px;color:var(--n50);margin-top:1px}
+.settings-right{font-size:12px;color:var(--n50)}
+.settings-chevron{font-size:14px;color:var(--n70)}
+
+/* ── TOAST ──────────────────────────────────────────────────── */
+.toast{background:var(--n20);color:#fff;border-radius:var(--r8);padding:12px 16px;font-size:12px;display:flex;align-items:center;gap:10px;max-width:320px;box-shadow:0 4px 16px rgba(0,0,0,.25)}
+.toast-icon{font-size:16px;flex-shrink:0}
+.toast-text{flex:1;line-height:1.4}
+.toast-action{color:var(--p70,#CFBCFF);font-weight:500;cursor:pointer;white-space:nowrap;font-size:11px}
+
+/* ── CALLOUT ────────────────────────────────────────────────── */
+.callout{background:var(--p95);border-left:3px solid var(--p40);border-radius:0 var(--r8) var(--r8) 0;padding:12px 16px;margin:16px 0;font-size:12px;color:var(--p20);line-height:1.6}
+.callout strong{display:block;font-weight:500;margin-bottom:2px}
+.callout.warn{background:var(--w90);border-color:var(--w40);color:#4E3800}
+.callout.err{background:var(--e90);border-color:var(--e40);color:var(--e40)}
+.callout.info{background:var(--s90);border-color:var(--s40);color:var(--s10)}
+
+/* ── LAYOUT HELPERS ─────────────────────────────────────────── */
+.row{display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap}
+.col{display:flex;flex-direction:column;gap:12px}
+.g8{gap:8px}.g16{gap:16px}.g24{gap:24px}
+.mt8{margin-top:8px}.mt12{margin-top:12px}.mt16{margin-top:16px}.mt24{margin-top:24px}
+.mb8{margin-bottom:8px}.mb12{margin-bottom:12px}.mb16{margin-bottom:16px}
+.p16{padding:16px}.p20{padding:20px}
+.flex-1{flex:1}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.text-center{text-align:center}
+.screen-screens{display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start}
+.annotation{font-size:11px;color:var(--n50);line-height:1.6;padding:10px 14px;background:var(--surf-low);border-radius:var(--r8);border-left:2px solid var(--outline-v);margin-top:8px}
+.annotation strong{color:var(--n30);font-weight:500}
+
+/* Step indicator */
+.step-indicator{display:flex;gap:6px;justify-content:center;padding:12px 0}
+.step-dot{width:6px;height:6px;border-radius:50%;background:var(--n90)}
+.step-dot.active{background:var(--p40);width:20px;border-radius:var(--rfull)}
+
+/* ── TAGS ───────────────────────────────────────────────────── */
+.screen-tag{display:inline-flex;align-items:center;gap:4px;font-size:9px;font-weight:500;padding:2px 8px;border-radius:var(--rfull);margin-bottom:12px}
+.tag-p0{background:#FCE4EC;color:#880E4F}
+.tag-new{background:var(--t95);color:var(--t40)}
+.tag-onb{background:var(--p90);color:var(--p20)}
+
+/* ── SCROLLBAR ──────────────────────────────────────────────── */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--outline-v);border-radius:3px}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<!-- ════════════════════════════════ LEFT NAV ═════════════════════════════════ -->
+<nav class="leftnav">
+  <div class="leftnav-logo">
+    <div class="lmark">T</div>
+    <div><div class="lname">Tempo</div><div class="lsub">MOCKUP A–Z</div></div>
+  </div>
+  <div class="nav-sec">Onboarding</div>
+  <a class="nav-a" href="#s1"><div class="nav-dot"></div>Splash / Sign up</a>
+  <a class="nav-a" href="#s2"><div class="nav-dot"></div>Connect Calendar</a>
+  <a class="nav-a" href="#s3"><div class="nav-dot"></div>Select Calendars</a>
+  <a class="nav-a" href="#s4"><div class="nav-dot"></div>Preferences</a>
+  <div class="nav-sec">Planning Loop</div>
+  <a class="nav-a" href="#s5"><div class="nav-dot"></div>Brain Dump</a>
+  <a class="nav-a" href="#s6"><div class="nav-dot"></div>AI Parsing</a>
+  <a class="nav-a" href="#s7"><div class="nav-dot"></div>Task Review</a>
+  <a class="nav-a" href="#s8"><div class="nav-dot"></div>Plan Generation</a>
+  <a class="nav-a" href="#s9"><div class="nav-dot"></div>Plan View</a>
+  <a class="nav-a" href="#s10"><div class="nav-dot"></div>Plan Review</a>
+  <a class="nav-a" href="#s11"><div class="nav-dot"></div>Calendar Commit</a>
+  <a class="nav-a" href="#s12"><div class="nav-dot"></div>Confirmation</a>
+  <div class="nav-sec">During Week</div>
+  <a class="nav-a" href="#s13"><div class="nav-dot"></div>Weekly Review</a>
+  <a class="nav-a" href="#s14"><div class="nav-dot"></div>Empty States</a>
+  <a class="nav-a" href="#s15"><div class="nav-dot"></div>Error States</a>
+  <a class="nav-a" href="#s16"><div class="nav-dot"></div>Settings</div>
+  <div class="nav-sec">Desktop View</div>
+  <a class="nav-a" href="#s17"><div class="nav-dot"></div>Desktop — Plan View</a>
+  <a class="nav-a" href="#s18"><div class="nav-dot"></div>Desktop — Review</a>
+</nav>
+
+<!-- ════════════════════════════════ MAIN ════════════════════════════════════ -->
+<div class="main">
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="hero-eyebrow">Tempo MVP · Full Product Mockup</div>
+  <h1 class="hero-title">Every screen.<br/><span>Every state.</span></h1>
+  <p class="hero-sub">18 screens · All phases of the user flow · Mobile-first · Design system exact. PRD FR-1 through FR-9. Spec §5.1–5.9.</p>
+  <div class="hero-chips">
+    <span class="hero-chip">Phase 1 — Onboarding</span>
+    <span class="hero-chip">Phase 2 — Brain Dump</span>
+    <span class="hero-chip">Phase 3 — AI Parsing</span>
+    <span class="hero-chip">Phase 4 — Plan Generation</span>
+    <span class="hero-chip">Phase 5 — Plan Review</span>
+    <span class="hero-chip">Phase 6 — Commit</span>
+    <span class="hero-chip">Phase 7 — Weekly Review</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ S1 SPLASH -->
+<div class="section" id="s1">
+  <div class="sec-eyebrow">Screen 01 · Onboarding</div>
+  <h2 class="sec-title">Splash & Sign Up</h2>
+  <p class="sec-desc">First thing the user sees. Three value props, then Google sign-in. No friction. Privacy is acknowledged upfront. PRD FR-1.</p>
+  <div class="screen-screens">
+
+    <!-- Splash -->
+    <div>
+      <div class="screen-label">Splash — value prop</div>
+      <span class="screen-tag tag-onb">Onboarding</span>
+      <div class="phone-shell">
+        <div style="background:linear-gradient(160deg,var(--p20) 0%,#0A0030 100%);padding:60px 28px 40px;text-align:center;min-height:680px;display:flex;flex-direction:column;align-items:center;justify-content:space-between">
+          <div>
+            <div style="width:64px;height:64px;border-radius:20px;background:var(--p40);display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:700;font-size:32px;color:#fff;margin:0 auto 24px;box-shadow:0 8px 24px rgba(103,80,164,.4)">T</div>
+            <div style="font-family:var(--font-d);font-size:32px;font-weight:700;color:#fff;letter-spacing:-.6px;margin-bottom:6px">Tempo</div>
+            <div style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.6;margin-bottom:40px">Your AI life planner that finds time<br/>for what actually matters.</div>
+            <div style="display:flex;flex-direction:column;gap:16px;text-align:left;margin-bottom:40px">
+              <div style="display:flex;gap:12px;align-items:flex-start">
+                <div style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0">📅</div>
+                <div><div style="font-size:13px;font-weight:500;color:#fff;margin-bottom:2px">Reads your work calendar</div><div style="font-size:11px;color:rgba(255,255,255,.5);line-height:1.5">Finds the real gaps between your meetings</div></div>
+              </div>
+              <div style="display:flex;gap:12px;align-items:flex-start">
+                <div style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0">✍️</div>
+                <div><div style="font-size:13px;font-weight:500;color:#fff;margin-bottom:2px">Brain dump in 30 seconds</div><div style="font-size:11px;color:rgba(255,255,255,.5);line-height:1.5">Type anything — Tempo figures out the details</div></div>
+              </div>
+              <div style="display:flex;gap:12px;align-items:flex-start">
+                <div style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0">⚡</div>
+                <div><div style="font-size:13px;font-weight:500;color:#fff;margin-bottom:2px">One tap to your calendar</div><div style="font-size:11px;color:rgba(255,255,255,.5);line-height:1.5">Review the plan, approve, done.</div></div>
+              </div>
+            </div>
+          </div>
+          <div style="width:100%">
+            <button class="btn btn-filled" style="width:100%;justify-content:center;gap:10px;font-size:14px;padding:14px 24px;background:#fff;color:var(--p20);margin-bottom:10px">
+              <span>🔐</span> Continue with Google
+            </button>
+            <div style="font-size:10px;color:rgba(255,255,255,.35);line-height:1.5;text-align:center">By continuing you agree to our Terms of Service.<br/>Your work calendar is read-only — we never edit it.</div>
+          </div>
+        </div>
+      </div>
+      <div class="annotation"><strong>PRD FR-1:</strong> Google OAuth. Privacy copy visible before sign-in. Work calendar is read-only — stated upfront to build trust.</div>
+    </div>
+
+    <!-- Sign up state -->
+    <div>
+      <div class="screen-label">Auth loading state</div>
+      <span class="screen-tag tag-onb">Onboarding</span>
+      <div class="phone-shell">
+        <div style="background:linear-gradient(160deg,var(--p20) 0%,#0A0030 100%);min-height:680px;display:flex;align-items:center;justify-content:center;padding:40px 28px">
+          <div style="text-align:center">
+            <div style="width:56px;height:56px;border-radius:50%;border:3px solid rgba(255,255,255,.2);border-top-color:#fff;margin:0 auto 20px;animation:spin 1s linear infinite"></div>
+            <div style="font-family:var(--font-ui);font-size:15px;font-weight:500;color:#fff;margin-bottom:6px">Connecting to Google…</div>
+            <div style="font-size:12px;color:rgba(255,255,255,.5)">Verifying your account</div>
+          </div>
+        </div>
+      </div>
+      <div class="annotation"><strong>UX rule:</strong> Never leave the user staring at a blank screen during OAuth. Show spinner with friendly copy.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ S2 CONNECT CALENDAR -->
+<div class="section" id="s2">
+  <div class="sec-eyebrow">Screen 02 · Onboarding</div>
+  <h2 class="sec-title">Connect Google Calendar</h2>
+  <p class="sec-desc">User grants calendar read+write access. Privacy is explicit. Error state shown if OAuth fails. Spec §5.1 / PRD FR-2.</p>
+  <div class="screen-screens">
+
+    <div>
+      <div class="screen-label">Connect — default state</div>
+      <div class="phone-shell">
+        <div class="onb-header">
+          <div class="onb-logo"><div class="onb-logo-mark">T</div><div class="onb-logo-name">Tempo</div></div>
+          <div class="onb-skip" style="font-size:11px;color:var(--n50)">Step 1 of 4</div>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" style="width:25%"></div></div>
+        <div class="onb-body">
+          <div style="font-size:28px;margin-bottom:12px">📅</div>
+          <div class="onb-title">Connect your calendar</div>
+          <div class="onb-sub">Tempo reads your work calendar to find real gaps between meetings. We never edit or share your work events.</div>
+          <div class="privacy-box">
+            <div class="privacy-icon">🔒</div>
+            <div class="privacy-text">
+              <strong>What Tempo can and cannot do</strong>
+              ✓ Read free/busy blocks from your work calendar<br/>
+              ✓ Write personal events to your personal calendar<br/>
+              ✗ Read the titles of your work meetings<br/>
+              ✗ Edit, move, or delete any work events
+            </div>
+          </div>
+          <button class="btn btn-filled" style="width:100%;justify-content:center;gap:8px;font-size:13px;padding:13px 24px;margin-top:8px"><span>🔐</span> Connect with Google</button>
+          <div style="font-size:10px;color:var(--n50);text-align:center;margin-top:10px;line-height:1.5">You can disconnect at any time in Settings → Connected Accounts</div>
+        </div>
+      </div>
+      <div class="annotation"><strong>PRD §10:</strong> Privacy language is a legal requirement. Input vs output calendar explained before any access is granted.</div>
+    </div>
+
+    <div>
+      <div class="screen-label">Connect — error state (OAuth failed)</div>
+      <div class="phone-shell">
+        <div class="onb-header">
+          <div class="onb-logo"><div class="onb-logo-mark">T</div><div class="onb-logo-name">Tempo</div></div>
+          <div class="onb-skip" style="font-size:11px;color:var(--n50)">Step 1 of 4</div>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" style="width:25%"></div></div>
+        <div class="onb-body">
+          <div style="font-size:28px;margin-bottom:12px">📅</div>
+          <div class="onb-title">Connect your calendar</div>
+          <div class="onb-sub">Tempo reads your work calendar to find real gaps between meetings.</div>
+          <div class="callout err" style="margin-bottom:16px">
+            <strong>Connection failed</strong>
+            Google couldn't complete the connection. This sometimes happens if permissions were denied. Please try again.
+          </div>
+          <div style="font-size:12px;color:var(--n40);margin-bottom:14px;line-height:1.5">Make sure to allow both <strong>read</strong> and <strong>write</strong> permissions when Google asks.</div>
+          <button class="btn btn-filled" style="width:100%;justify-content:center;gap:8px;font-size:13px;padding:13px 24px;margin-bottom:8px"><span>🔄</span> Try again</button>
+          <button class="btn btn-text" style="width:100%;justify-content:center;font-size:12px">Need help?</button>
+        </div>
+      </div>
+      <div class="annotation"><strong>Spec §5.1 edge case:</strong> If OAuth fails, show clear retry. Never leave user stuck. Explain which permission is missing.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ S3 SELECT CALENDARS -->
+<div class="section" id="s3">
+  <div class="sec-eyebrow">Screen 03 · Onboarding</div>
+  <h2 class="sec-title">Select Input & Output Calendars</h2>
+  <p class="sec-desc">Two separate selections. Input = read-only (work). Output = write (personal). Must be different calendars. PRD FR-2.</p>
+  <div class="screen-screens">
+
+    <div>
+      <div class="screen-label">Select INPUT calendar (read)</div>
+      <div class="phone-shell">
+        <div class="onb-header">
+          <div class="onb-logo"><div class="onb-logo-mark">T</div><div class="onb-logo-name">Tempo</div></div>
+          <div class="onb-skip" style="font-size:11px;color:var(--n50)">Step 2 of 4</div>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" style="width:50%"></div></div>
+        <div class="onb-body">
+          <div class="onb-title">Which calendar has your work events?</div>
+          <div class="onb-sub">Tempo reads this to find gaps between your meetings. <strong>We never edit these events.</strong></div>
+          <div class="callout info" style="margin-bottom:16px"><strong>Read-only access</strong>Tempo can only see free/busy times — not the titles or details of your work meetings.</div>
+          <div class="cal-option selected">
+            <div class="cal-option-icon">📧</div>
+            <div class="cal-option-text">
+              <div class="cal-option-name">humayun@company.com</div>
+              <div class="cal-option-email">Work Google Calendar</div>
+              <span class="cal-role-tag tag-read">READ ONLY</span>
+            </div>
+            <div class="cal-option-check">✓</div>
+          </div>
+          <div class="cal-option">
+            <div class="cal-option-icon">👤</div>
+            <div class="cal-option-text">
+              <div class="cal-option-name">humayun@gmail.com</div>
+              <div class="cal-option-email">Personal Google Calendar</div>
+            </div>
+            <div class="cal-option-check"></div>
+          </div>
+          <div class="cal-option">
+            <div class="cal-option-icon">📋</div>
+            <div class="cal-option-text">
+              <div class="cal-option-name">Shared Team Calendar</div>
+              <div class="cal-option-email">team@company.com</div>
+            </div>
+            <div class="cal-option-check"></div>
+          </div>
+        </div>
+        <div class="onb-cta">
+          <button class="btn btn-filled" style="width:100%;justify-content:center;font-size:13px;padding:13px">Continue →</button>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="screen-label">Select OUTPUT calendar (write)</div>
+      <div class="phone-shell">
+        <div class="onb-header">
+          <div class="onb-logo"><div class="onb-logo-mark">T</div><div class="onb-logo-name">Tempo</div></div>
+          <div class="onb-skip" style="font-size:11px;color:var(--n50)">Step 2 of 4</div>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" style="width:50%"></div></div>
+        <div class="onb-body">
+          <div class="onb-title">Where should Tempo add your personal events?</div>
+          <div class="onb-sub">All events Tempo creates will go here. Clearly labelled as <strong>"🏋 Tempo: Gym"</strong> so you can always tell them apart.</div>
+          <div class="callout" style="margin-bottom:16px"><strong>Write access</strong>Tempo will only ever create events here — never in your work calendar.</div>
+          <div class="cal-option">
+            <div class="cal-option-icon">📧</div>
+            <div class="cal-option-text">
+              <div class="cal-option-name">humayun@company.com</div>
+              <div class="cal-option-email" style="color:var(--e40)">⚠ Cannot use — this is your read-only work calendar</div>
+            </div>
+            <div class="cal-option-check" style="opacity:.3"></div>
+          </div>
+          <div class="cal-option selected">
+            <div class="cal-option-icon">👤</div>
+            <div class="cal-option-text">
+              <div class="cal-option-name">humayun@gmail.com</div>
+              <div class="cal-option-email">Personal Google Calendar</div>
+              <span class="cal-role-tag tag-write">WRITE ACCESS</span>
+            </div>
+            <div class="cal-option-check">✓</div>
+          </div>
+        </div>
+        <div class="onb-cta">
+          <button class="btn btn-filled" style="width:100%;justify-content:center;font-size:13px;padding:13px">Continue →</button>
+        </div>
+      </div>
+      <div class="annotation"><strong>Spec §5.1:</strong> Work calendar shown as disabled for output — cannot select the same calendar for read and write.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ S4 PREFERENCES -->
+<div class="section" id="s4">
+  <div class="sec-eyebrow">Screen 04 · Onboarding</div>
+  <h2 class="sec-title">Planning Preferences</h2>
+  <p class="sec-desc">Minimum input needed to personalise the first plan. Everything is editable later in Settings. PRD FR-3 / Spec §5.1.</p>
+  <div class="screen-screens">
+    <div>
+      <div class="screen-label">Preferences — all questions</div>
+      <div class="phone-shell">
+        <div class="onb-header">
+          <div class="onb-logo"><div class="onb-logo-mark">T</div><div class="onb-logo-name">Tempo</div></div>
+          <div style="font-size:11px;color:var(--n50)">Step 3 of 4</div>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" style="width:75%"></div></div>
+        <div class="onb-body" style="padding-bottom:8px">
+          <div class="onb-title">When do you like to do personal things?</div>
+          <div class="onb-sub">Tempo will use these to place tasks in times that work for you.</div>
+
+          <div class="pref-section">
+            <div class="pref-section-title">Personal task windows</div>
+            <div class="chip-row mb16">
+              <div class="chip sel">🌅 Mornings</div>
+              <div class="chip">☀️ Lunch</div>
+              <div class="chip sel">🌆 Evenings</div>
+              <div class="chip">📅 Weekends</div>
+              <div class="chip">🏢 Work gaps</div>
+            </div>
+          </div>
+
+          <div class="pref-section">
+            <div class="pref-section-title">Exercise window</div>
+            <div class="chip-row mb16">
+              <div class="chip sel">🌅 Early morning</div>
+              <div class="chip">🌆 Evening</div>
+              <div class="chip">📅 Weekend only</div>
+            </div>
+          </div>
+
+          <div class="pref-section">
+            <div class="pref-section-title">Minimum gap size</div>
+            <div style="font-size:11px;color:var(--n50);margin-bottom:8px">Slots smaller than this won't be used for personal tasks</div>
+            <div class="chip-row mb16">
+              <div class="chip">15 min</div>
+              <div class="chip sel">30 min</div>
+              <div class="chip">45 min</div>
+            </div>
+          </div>
+
+          <div class="pref-section">
+            <div class="pref-section-title">Schedule settings</div>
+            <div class="pref-row">
+              <div><div class="pref-label">Use workday gaps</div><div class="pref-sub">Allow tasks in gaps between meetings</div></div>
+              <div class="toggle on"><div class="toggle-knob"></div></div>
+            </div>
+            <div class="pref-row">
+              <div><div class="pref-label">Lighter tasks after busy days</div><div class="pref-sub">Tempo adjusts load on heavy meeting days</div></div>
+              <div class="toggle on"><div class="toggle-knob"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="onb-cta">
+          <button class="btn btn-filled" style="width:100%;justify-content:center;font-size:13px;padding:13px">Start planning →</button>
+          <div style="font-size:10px;color:var(--n50);text-align:center">All preferences can be edited later in Settings</div>
+        </div>
+      </div>
+      <div class="annotation"><strong>Spec §5.1:</strong> Required: time windows, exercise window, min gap, work gaps toggle. All optional except one time window. Editable in Settings post-onboarding.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ S5 BRAIN DUMP -->
+<div class="section" id="s5">
+  <div class="sec-eyebrow">Screen 05 · Weekly Planning</div>
+  <h2 class="sec-title">Brain Dump</h2>
+  <p class="sec-desc">Free text input. 30 seconds max. No forms. No structure. The returning user sees last week's carry-forward pre-loaded. PRD FR-4 / Spec §5.2.</p>
+  <div class="screen-screens">
+
+    <div>
+      <div class="screen-label">Brain dump — empty / first visit</div>
+      <div class="phone-shell">
+        <div class="dump-appbar">
+          <div class="dump-appbar-title">This week</div>
+          <div class="dump-week">May 12–18, 2026</div>
+        </div>
+        <div style="background:var(--surf-mid);padding:16px;min-height:600px;display:flex;flex-direction:column;gap:12px">
+          <div style="background:#fff;border-radius:var(--r16);overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.08)">
+            <div style="padding:20px 18px 0">
+              <div style="font-family:var(--font-d);font-size:20px;font-weight:700;color:var(--n10);margin-bottom:6px;line-height:1.3">What do you want to<br/>make time for this week?</div>
+              <div style="font-size:12px;color:var(--n50);margin-bottom:16px;line-height:1.5">Type anything — errands, goals, hobbies, calls, rest. Tempo figures out the details and fits them in your calendar.</div>
+              <textarea class="dump-textarea" placeholder="gym 3 times, call mum, buy groceries, book dentist, read for 30 mins…" rows="5" style="border:none;outline:none;resize:none;font-family:var(--font-body);font-size:13px;color:var(--n10);line-height:1.6;width:100%;background:transparent"></textarea>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 18px 12px">
+              <div style="font-size:10px;color:var(--n60);font-family:var(--font-mono)">0 / 2,000</div>
+              <button class="btn btn-filled btn-disabled btn-sm" style="font-size:12px">Parse tasks →</button>
+            </div>
+            <div style="padding:10px 18px 14px;background:var(--surf-low);border-top:1px solid var(--outline-v)">
+              <div style="font-size:10px;color:var(--n50);margin-bottom:7px">EXAMPLES</div>
+              <div style="display:flex;flex-wrap:wrap;gap:6px">
+                <span class="dump-ex-pill">gym 3×</span>
+                <span class="dump-ex-pill">call mum</span>
+                <span class="dump-ex-pill">groceries</span>
+                <span class="dump-ex-pill">book dentist</span>
+                <span class="dump-ex-pill">read 30 min</span>
+                <span class="dump-ex-pill">deep work</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bottom-nav">
+          <div class="bnav-item"><div class="bnav-pill active" style="background:var(--p90)">📅</div><div class="bnav-lbl" style="color:var(--p40)">Plan</div></div>
+          <div class="bnav-item active"><div class="bnav-pill" style="background:var(--p90)">✏️</div><div class="bnav-lbl" style="color:var(--p40)">Brain Dump</div></div>
+          <div class="bnav-item"><div class="bnav-pill">📋</div><div class="bnav-lbl">Review</div></div>
+          <div class="bnav-item"><div class="bnav-pill">⚙️</div><div class="bnav-lbl">Settings</div></div>
+        </div>
+      </div>
+      <div class="annotation"><strong>PRD FR-4:</strong> Submit disabled until text entered. Counter shown. Example pills tap-to-insert for quick start.</div>
+    </div>
+
+    <div>
+      <div class="screen-label">Brain dump — returning user, carry-forward</div>
+      <div class="phone-shell">
+        <div class="dump-appbar">
+          <div class="dump-appbar-title">This week</div>
+          <div class="dump-week">May 19–25, 2026</div>
+        </div>
+        <div style="background:var(--surf-mid);padding:16px;min-height:600px;display:flex;flex-direction:column;gap:12px">
+          <div class="callout" style="margin:0;font-size:11px"><strong>From last week</strong>2 tasks didn't happen — added below. Edit or remove them.</div>
+          <div style="background:#fff;border-radius:var(--r16);overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.08)">
+            <div style="padding:20px 18px 0">
+              <div style="font-family:var(--font-d);font-size:20px;font-weight:700;color:var(--n10);margin-bottom:6px;line-height:1.3">What do you want to make time for this week?</div>
+              <textarea class="dump-textarea" rows="6" style="border:none;outline:none;resize:none;font-family:var(--font-body);font-size:13px;color:var(--n10);line-height:1.7;width:100%;background:transparent">🛒 Grocery run (from last week)
+📞 Call dentist (from last week)
+
+gym 3 times, read for 30 mins…</textarea>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 18px 12px">
+              <div style="font-size:10px;color:var(--n60);font-family:var(--font-mono)">124 / 2,000</div>
+              <button class="btn btn-filled btn-sm">Parse tasks →</button>
+            </div>
+          </div>
+        </div>
+        <div class="bottom-nav">
+          <div class="bnav-item"><div class="bnav-pill">📅</div><div class="bnav-lbl">Plan</div></div>
+          <div class="bnav-item active"><div class="bnav-pill" style="background:var(--p90)">✏️</div><div class="bnav-lbl" style="color:var(--p40)">Brain Dump</div></div>
+          <div class="bnav-item"><div class="bnav-pill">📋</div><div class="bnav-lbl">Review</div></div>
+          <div class="bnav-item"><div class="bnav-pill">⚙️</div><div class="bnav-lbl">Settings</div></div>
+        </div>
+      </div>
+      <div class="annotation"><strong>PRD FR-9:</strong> Monday morning — unfinished tasks from last week pre-loaded as editable starter text. User can delete or edit.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ S6 AI PARSING LOADING -->
+<div class="section" id="s6">
+  <div class="sec-eyebrow">Screen 06 · AI Parsing</div>
+  <h2 class="sec-title">AI Task Parsing — Loading</h2>
+  <p class="sec-desc">Pipeline runs asynchronously. 202 returned immediately, polling GET /v1/schedule/proposed. Max 3s p95. Show skeleton for minimum 300ms. API spec §4.2.</p>
+  <div class="screen-screens">
+    <div>
+      <div class="screen-label">Parsing — in progress (skeleton)</div>
+      <div class="phone-shell">
+        <div class="dump-appbar">
+          <div style="font-family:var(--font-ui);font-size:16px;font-weight:500;color:var(--n10)">Reading your tasks…</div>
+        </div>
+        <div style="background:var(--surf-mid);padding:16px;min-height:600px">
+          <div style="text-align:center;padding:20px 0 24px">
+            <div style="font-size:13px;font-weight:500;color:var(--p40);margin-bottom:4px">Working on your tasks…</div>
+            <div style="font-size:11px;color:var(--n50)">Extracting tasks · estimating durations · setting priorities</div>
+          </div>
+          <!-- Skeleton cards -->
+          <div class="loading-card">
+            <div class="skeleton skel-title" style="width:55%"></div>
+            <div class="skeleton skel-line" style="width:40%"></div>
+            <div class="skeleton skel-line" style="width:30%"></div>
+          </div>
+          <div class="loading-card">
+            <div class="skeleton skel-title" style="width:45%"></div>
+            <div class="skeleton skel-line" style="width:35%"></div>
+            <div class="skeleton skel-line" style="width:25%"></div>
+          </div>
+          <div class="loading-card">
+            <div class="skeleton skel-title" style="width:60%"></div>
+            <div class="skeleton skel-line" style="width:40%"></div>
+            <div class="skeleton skel-line" style="width:20%"></div>
+          </div>
+          <div class="loading-card" style="opacity:.6">
+            <div class="skeleton skel-title" style="width:40%"></div>
+            <div class="skeleton skel-line" style="width:30%"></div>
+          </div>
+        </div>
+      </div>
+      <div class="annotation"><strong>API spec §4.2:</strong> Never show a spinner alone for 3s. Skeleton cards set the expectation of what's coming. Minimum 300ms display to avoid flicker.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ S7 TASK REVIEW -->
+<div class="section" id="s7">
+  <div class="sec-eyebrow">Screen 07 · Task Review</div>
+  <h2 class="sec-title">Parsed Task List — Review & Confirm</h2>
+  <p class="sec-desc">User reviews AI-parsed tasks before scheduling. Can edit, delete, add, or confirm. "Needs Review" for vague tasks. PRD FR-5 / Spec §5.3.</p>
+  <div class="screen-screens">
+    <div>
+      <div class="screen-label">Task list — all states shown</div>
+      <div class="phone-shell">
+        <div class="dump-appbar">
+          <div style="font-family:var(--font-ui);font-size:16px;font-weight:500;color:var(--n10)">Review your tasks</div>
+          <div style="font-size:11px;color:var(--n50);margin-left:auto">5 tasks</div>
+        </div>
+        <div style="background:var(--surf-mid);padding:12px;min-height:580px;display:flex;flex-direction:column;gap:8px">
+          <!-- Scheduled task -->
+          <div class="task-card tc-sched">
+            <div class="tc-top">
+              <div class="tc-title">🏋 Gym session</div>
+              <div style="font-size:16px;cursor:pointer;color:var(--n50)">⋯</div>
+            </div>
+            <div class="tc-meta">
+              <span>⏱ 90 min</span><span>🔴 High</span><span>🔄 Flexible</span><span>3× this week</span>
+            </div>
+            <div class="tc-foot">
+              <span class="badge b-health">Health</span>
+            </div>
+          </div>
+          <!-- Needs review -->
+          <div class="task-card tc-review">
+            <div class="tc-top">
+              <div class="tc-title">📞 Call dentist</div>
+              <div style="font-size:16px;cursor:pointer;color:var(--n50)">⋯</div>
+            </div>
+            <div class="tc-meta">
+              <span>⏱ 30 min</span><span>🟡 Medium</span><span>⏰ This week</span>
+            </div>
+            <div style="background:var(--w90);border-radius:var(--r8);padding:8px 10px;font-size:11px;color:#5D4037;margin-bottom:10px;line-height:1.5">⚠️ Is this a phone call or an in-person visit? Duration may vary — please confirm.</div>
+            <div class="tc-foot">
+              <span class="badge b-admin">Admin</span>
+              <span class="badge b-review">Needs Review</span>
+              <div class="tc-actions"><button class="btn btn-tonal btn-sm">Review →</button></div>
+            </div>
+          </div>
+          <!-- Normal task -->
+          <div class="task-card tc-sched">
+            <div class="tc-top"><div class="tc-title">🛒 Grocery run</div><div style="font-size:16px;cursor:pointer;color:var(--n50)">⋯</div></div>
+            <div class="tc-meta"><span>⏱ 60 min</span><span>🟡 Medium</span><span>🔄 Flexible</span></div>
+            <div class="tc-foot"><span class="badge b-errand">Errand</span></div>
+          </div>
+          <!-- Reading -->
+          <div class="task-card tc-sched">
+            <div class="tc-top"><div class="tc-title">📚 Read — 30 min</div><div style="font-size:16px;cursor:pointer;color:var(--n50)">⋯</div></div>
+            <div class="tc-meta"><span>⏱ 30 min</span><span>🟢 Low</span><span>🔄 Flexible</span><span>Daily</span></div>
+            <div class="tc-foot"><span class="badge b-learning">Learning</span></div>
+          </div>
+          <!-- Call mum -->
+          <div class="task-card tc-sched">
+            <div class="tc-top"><div class="tc-title">📞 Call mum</div><div style="font-size:16px;cursor:pointer;color:var(--n50)">⋯</div></div>
+            <div class="tc-meta"><span>⏱ 30 min</span><span>🟡 Medium</span><span>📅 This week</span></div>
+            <div class="tc-foot"><span class="badge b-family">Family</span></div>
+          </div>
+          <!-- Add manually -->
+          <button class="btn btn-outlined" style="width:100%;justify-content:center;gap:6px;font-size:12px;padding:10px"><span>＋</span> Add a task manually</button>
+        </div>
+        <div style="background:#fff;border-top:1px solid var(--outline-v);padding:14px 16px;display:flex;flex-direction:column;gap:8px">
+          <div style="font-size:11px;color:var(--n50);text-align:center">1 task needs review before scheduling</div>
+          <button class="btn btn-filled btn-disabled" style="width:100%;justify-content:center;font-size:13px;padding:13px">Confirm tasks →</button>
+        </div>
+      </div>
+      <div class="annotation"><strong>PRD FR-5:</strong> Confirm button disabled while "Needs Review" tasks exist. User must resolve all before scheduling proceeds. Can add tasks manually.</div>
+    </div>
+
+    <div>
+      <div class="screen-label">Edit task modal</div>
+      <div class="phone-shell">
+        <div style="background:rgba(0,0,0,.4);min-height:680px;display:flex;flex-direction:column;justify-content:flex-end">
+          <div style="background:#fff;border-radius:var(--r16) var(--r16) 0 0;padding:20px">
+            <div style="width:32px;height:4px;background:var(--n80);border-radius:var(--rfull);margin:0 auto 20px"></div>
+            <div style="font-family:var(--font-ui);font-size:17px;font-weight:500;color:var(--n10);margin-bottom:16px">Edit task</div>
+            <div class="col g16">
+              <div class="field-wrap">
+                <div class="field-label">Task name</div>
+                <input class="field-input" value="Call dentist" type="text"/>
+              </div>
+              <div class="field-wrap">
+                <div class="field-label">Duration</div>
+                <div class="chip-row">
+                  <div class="chip">15 min</div>
+                  <div class="chip">20 min</div>
+                  <div class="chip sel">30 min</div>
+                  <div class="chip">60 min</div>
+                  <div class="chip">Custom</div>
+                </div>
+              </div>
+              <div class="field-wrap">
+                <div class="field-label">Category</div>
+                <div class="chip-row">
+                  <div class="chip sel">Admin</div>
+                  <div class="chip">Family</div>
+                  <div class="chip">Health</div>
+                  <div class="chip">Other</div>
+                </div>
+              </div>
+              <div class="field-wrap">
+                <div class="field-label">Preferred time</div>
+                <div class="chip-row">
+                  <div class="chip">Morning</div>
+                  <div class="chip sel">Lunch</div>
+                  <div class="chip">Evening</div>
+                  <div class="chip">Anytime</div>
+                </div>
+              </div>
+              <div class="field-wrap">
+                <div class="field-label">Notes (optional)</div>
+                <textarea class="field-input" rows="2" placeholder="Any additional context…"></textarea>
+              </div>
+            </div>
+            <div style="display:flex;gap:8px;margin-top:20px">
+              <button class="btn btn-outlined flex-1" style="justify-content:center">Cancel</button>
+              <button class="btn btn-filled flex-1" style="justify-content:center">Save task</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="annotation"><strong>Spec §5.3:</strong> Edit modal allows changing duration, preferred time, category, deadline, notes. Duration must be >0. Category defaults to "Personal" if uncategorized.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ S8 PLAN GENERATION -->
+<div class="section" id="s8">
+  <div class="sec-eyebrow">Screen 08 · Plan Generation</div>
+  <h2 class="sec-title">Plan Generation — Loading</h2>
+  <p class="sec-desc">AI pipeline runs. Reads calendar, applies constraints, generates plan. Up to 15s p95. Show meaningful skeleton. API spec §4.3.</p>
+  <div class="screen-screens">
+    <div>
+      <div class="screen-label">Plan generating — skeleton</div>
+      <div class="phone-shell">
+        <div class="dump-appbar"><div style="font-family:var(--font-ui);font-size:16px;font-weight:500">Working on your plan…</div></div>
+        <div style="background:var(--surf-mid);padding:16px;min-height:600px">
+          <div style="text-align:center;padding:20px 0 24px">
+            <div style="font-size:13px;font-weight:500;color:var(--p40);margin-bottom:4px">Working on your plan…</div>
+            <div style="font-size:11px;color:var(--n50);line-height:1.5">Reading your calendar · matching tasks to gaps<br/>applying your preferences</div>
+          </div>
+          <div style="background:#fff;border-radius:var(--r12);padding:12px 14px;margin-bottom:12px;border:1px solid var(--outline-v)">
+            <div style="font-size:10px;font-weight:500;color:var(--n50);margin-bottom:8px;letter-spacing:.06em">THIS WEEK</div>
+            <div style="display:flex;gap:4px;margin-bottom:8px">
+              <div class="skeleton" style="height:32px;flex:1;border-radius:var(--r4)"></div>
+              <div class="skeleton" style="height:32px;flex:1;border-radius:var(--r4)"></div>
+              <div class="skeleton" style="height:32px;flex:1;border-radius:var(--r4)"></div>
+              <div class="skeleton" style="height:32px;flex:1;border-radius:var(--r4)"></div>
+              <div class="skeleton" style="height:32px;flex:1;border-radius:var(--r4)"></div>
+            </div>
+          </div>
+          <div class="loading-card"><div class="skeleton skel-title" style="width:50%"></div><div class="skeleton skel-line" style="width:70%"></div><div class="skeleton skel-line" style="width:40%"></div></div>
+          <div class="loading-card"><div class="skeleton skel-title" style="width:45%"></div><div class="skeleton skel-line" style="width:60%"></div><div class="skeleton skel-line" style="width:35%"></div></div>
+          <div class="loading-card" style="opacity:.7"><div class="skeleton skel-title" style="width:55%"></div><div class="skeleton skel-line" style="width:50%"></div></div>
+        </div>
+      </div>
+      <div class="annotation"><strong>PRD performance §7:</strong> Plan generation must complete in &lt;15s p95. Skeleton uses mini week-grid shape to prime the user for what's coming.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ S9 PLAN VIEW -->
+<div class="section" id="s9">
+  <div class="sec-eyebrow">Screen 09 · Plan View</div>
+  <h2 class="sec-title">Weekly Plan View + Tempo's Take</h2>
+  <p class="sec-desc">The hero screen. Tempo events vs work calendar. Every event has a Tempo's Take (collapsed by default). Deferred tasks visible below. Spec §5.4–5.5.</p>
+  <div class="screen-screens">
+
+    <div>
+      <div class="screen-label">Plan view — mobile (card list by day)</div>
+      <div class="phone-shell">
+        <div style="background:#fff;border-bottom:1px solid var(--outline-v);padding:12px 16px;display:flex;align-items:center;justify-content:space-between">
+          <div>
+            <div style="font-family:var(--font-ui);font-size:16px;font-weight:500;color:var(--n10)">Your plan</div>
+            <div style="font-size:11px;color:var(--n50)">May 12–18 · 4 events scheduled</div>
+          </div>
+          <button class="btn btn-outlined btn-sm">Regenerate</button>
+        </div>
+        <div style="background:var(--surf-mid);padding:12px;min-height:560px;overflow-y:auto">
+          <!-- Tuesday -->
+          <div style="font-size:11px;font-weight:500;color:var(--n50);letter-spacing:.06em;margin-bottom:8px;margin-top:4px">TUE 13</div>
+          <div class="task-card tc-sched">
+            <div class="tc-top">
+              <div class="tc-title">🏋 Gym session</div>
+              <div class="tc-time">07:00 – 08:30</div>
+            </div>
+            <div class="tc-meta"><span>90 min</span><span>🔴 High</span></div>
+            <div class="tc-take-collapsed">📝 Lighter work day, morning slot — <span style="color:var(--p40);font-weight:500">Why here?</span></div>
+            <div class="tc-foot">
+              <span class="badge b-health">Health</span>
+              <span class="badge b-sched">Scheduled</span>
+              <div class="tc-actions">
+                <button class="btn btn-text btn-sm">Edit</button>
+                <button class="btn btn-tonal btn-sm">✓ Accept</button>
+              </div>
+            </div>
+          </div>
+          <div class="task-card tc-sched">
+            <div class="tc-top">
+              <div class="tc-title">📞 Call mum</div>
+              <div class="tc-time">15:00 – 15:30</div>
+            </div>
+            <div class="tc-meta"><span>30 min</span><span>🟡 Medium</span></div>
+            <div class="tc-take">
+              <strong>Tempo's Take</strong>Tuesday afternoon — a 45-min gap after your 1:1. Short enough for a call, enough buffer before your 4pm meeting.
+            </div>
+            <div class="tc-foot">
+              <span class="badge b-family">Family</span>
+              <span class="badge b-sched">Scheduled</span>
+              <div class="tc-actions">
+                <button class="btn btn-text btn-sm">Edit</button>
+                <button class="btn btn-tonal btn-sm">✓ Accept</button>
+              </div>
+            </div>
+          </div>
+          <!-- Thursday -->
+          <div style="font-size:11px;font-weight:500;color:var(--n50);letter-spacing:.06em;margin-bottom:8px;margin-top:12px">THU 15</div>
+          <div class="task-card tc-sched">
+            <div class="tc-top"><div class="tc-title">🏋 Gym session</div><div class="tc-time">07:00 – 08:30</div></div>
+            <div class="tc-meta"><span>90 min</span><span>🔴 High</span></div>
+            <div class="tc-take-collapsed">📝 Second gym session — <span style="color:var(--p40);font-weight:500">Why here?</span></div>
+            <div class="tc-foot">
+              <span class="badge b-health">Health</span>
+              <span class="badge b-sched">Scheduled</span>
+              <div class="tc-actions"><button class="btn btn-text btn-sm">Edit</button><button class="btn btn-tonal btn-sm">✓ Accept</button></div>
+            </div>
+          </div>
+          <!-- Deferred -->
+          <div style="background:var(--n95);border-radius:var(--r12);padding:12px 14px;margin-top:8px;border:1px solid var(--outline-v)">
+            <div style="font-size:11px;font-weight:500;color:var(--n40);margin-bottom:8px">📋 COULDN'T FIT THIS WEEK</div>
+            <div class="task-card tc-defer" style="margin-bottom:0">
+              <div class="tc-top"><div class="tc-title">🛒 Grocery run</div><div style="font-size:11px;color:var(--n50)">Deferred</div></div>
+              <div class="tc-reason">No 60-min slot available without overloading your Thursday. Earliest: Saturday morning next week.</div>
+              <div class="tc-foot">
+                <span class="badge b-errand">Errand</span>
+                <span class="badge b-defer">Deferred</span>
+                <div class="tc-actions">
+                  <button class="btn btn-text btn-sm">Schedule anyway</button>
+                  <button class="btn btn-outlined btn-sm">Next week</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="background:#fff;border-top:1px solid var(--outline-v);padding:12px 16px;display:flex;gap:8px">
+          <button class="btn btn-outlined flex-1" style="justify-content:center;font-size:12px">Accept all</button>
+          <button class="btn btn-filled flex-1" style="justify-content:center;font-size:12px">Add to calendar →</button>
+        </div>
+        <div class="bottom-nav">
+          <div class="bnav-item active"><div class="bnav-pill" style="background:var(--p90)">📅</div><div class="bnav-lbl" style="color:var(--p40)">Plan</div></div>
+          <div class="bnav-item"><div class="bnav-pill">✏️</div><div class="bnav-lbl">Dump</div></div>
+          <div class="bnav-item"><div class="bnav-pill">📋</div><div class="bnav-lbl">Review</div></div>
+          <div class="bnav-item"><div class="bnav-pill">⚙️</div><div class="bnav-lbl">Settings</div></div>
+        </div>
+      </div>
+      <div class="annotation"><strong>Spec §5.5:</strong> Tempo's Take collapsed by default (one line + "Why here?"). Tap to expand full reasoning. Deferred tasks always visible — never hidden. Accept All is active (events not yet accepted individually in this state, so it remains available).</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ S10 PLAN REVIEW -->
+<div class="section" id="s10">
+  <div class="sec-eyebrow">Screen 10 · Plan Review</div>
+  <h2 class="sec-title">Plan Review & Editing</h2>
+  <p class="sec-desc">User accepts, edits, removes events. Conflict warning if edit creates clash. Regenerate with confirmation. PRD FR-7 / Spec §5.6.</p>
+  <div class="screen-screens">
+    <div>
+      <div class="screen-label">Edit event — bottom sheet</div>
+      <div class="phone-shell">
+        <div style="background:rgba(0,0,0,.5);min-height:680px;display:flex;flex-direction:column;justify-content:flex-end">
+          <div style="background:#fff;border-radius:var(--r16) var(--r16) 0 0;padding:20px">
+            <div style="width:32px;height:4px;background:var(--n80);border-radius:var(--rfull);margin:0 auto 16px"></div>
+            <div style="font-family:var(--font-ui);font-size:17px;font-weight:500;margin-bottom:16px">Edit event</div>
+            <div style="background:var(--t95);border-radius:var(--r8);padding:10px 12px;margin-bottom:16px;display:flex;gap:10px;align-items:center">
+              <div style="font-size:20px">🏋</div>
+              <div><div style="font-size:13px;font-weight:500;color:var(--t40)">Gym session</div><div style="font-size:11px;color:var(--t40)">Tue · 07:00 – 08:30 · 90 min</div></div>
+            </div>
+            <div class="col g12">
+              <div class="field-wrap">
+                <div class="field-label">Day</div>
+                <div class="chip-row">
+                  <div class="chip">Mon</div>
+                  <div class="chip sel">Tue</div>
+                  <div class="chip">Wed</div>
+                  <div class="chip">Thu</div>
+                  <div class="chip">Fri</div>
+                  <div class="chip">Sat</div>
+                </div>
+              </div>
+              <div class="field-wrap">
+                <div class="field-label">Time</div>
+                <div class="chip-row">
+                  <div class="chip sel">07:00</div>
+                  <div class="chip">08:00</div>
+                  <div class="chip">17:00</div>
+                  <div class="chip">18:00</div>
+                  <div class="chip">Custom</div>
+                </div>
+              </div>
+              <div class="field-wrap">
+                <div class="field-label">Notes (optional)</div>
+                <textarea class="field-input" rows="2" placeholder="Bring gym bag…"></textarea>
+              </div>
+            </div>
+            <div style="display:flex;gap:8px;margin-top:16px">
+              <button class="btn btn-err btn-sm flex-1" style="justify-content:center">Remove</button>
+              <button class="btn btn-outlined btn-sm flex-1" style="justify-content:center">Cancel</button>
+              <button class="btn btn-filled btn-sm flex-1" style="justify-content:center">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="screen-label">Conflict warning state</div>
+      <div class="phone-shell">
+        <div style="background:rgba(0,0,0,.5);min-height:680px;display:flex;flex-direction:column;justify-content:flex-end">
+          <div style="background:#fff;border-radius:var(--r16) var(--r16) 0 0;padding:20px">
+            <div style="width:32px;height:4px;background:var(--n80);border-radius:var(--rfull);margin:0 auto 16px"></div>
+            <div style="font-family:var(--font-ui);font-size:17px;font-weight:500;margin-bottom:16px">Edit event</div>
+            <div class="callout err" style="margin-bottom:12px">
+              <strong>Time conflict</strong>Tuesday at 09:00 overlaps with an existing work event. Please choose a different time.
+            </div>
+            <div class="col g12">
+              <div class="field-wrap">
+                <div class="field-label">Day</div>
+                <div class="chip-row">
+                  <div class="chip">Mon</div>
+                  <div class="chip sel">Tue</div>
+                  <div class="chip">Wed</div>
+                  <div class="chip">Thu</div>
+                </div>
+              </div>
+              <div class="field-wrap">
+                <div class="field-label">Time</div>
+                <div class="chip-row">
+                  <div class="chip">07:00</div>
+                  <div class="chip" style="border-color:var(--e40);color:var(--e40);background:var(--e90)">09:00 ✗</div>
+                  <div class="chip">17:00</div>
+                  <div class="chip">18:00</div>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;gap:8px;margin-top:16px">
+              <button class="btn btn-outlined flex-1" style="justify-content:center">Cancel</button>
+              <button class="btn btn-filled btn-disabled flex-1" style="justify-content:center">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="annotation"><strong>PRD FR-7:</strong> Manual edits revalidated against hard constraints. Conflict shown immediately. Save button disabled until conflict resolved. Error uses --error-40, not deferred grey.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ S11 CALENDAR COMMIT -->
+<div class="section" id="s11">
+  <div class="sec-eyebrow">Screen 11 · Calendar Commit</div>
+  <h2 class="sec-title">Add to Calendar</h2>
+  <p class="sec-desc">Pre-commit validation, then write to output calendar. Events labelled. Error handling. Spec §5.7 / PRD FR-8 / API §4.4.</p>
+  <div class="screen-screens">
+    <div>
+      <div class="screen-label">Commit — in progress</div>
+      <div class="phone-shell">
+        <div style="background:#fff;border-bottom:1px solid var(--outline-v);padding:12px 16px">
+          <div style="font-family:var(--font-ui);font-size:16px;font-weight:500">Adding to calendar…</div>
+        </div>
+        <div style="background:var(--surf-mid);padding:16px;min-height:580px;display:flex;flex-direction:column;gap:8px">
+          <div style="text-align:center;padding:16px 0 20px">
+            <div style="font-size:13px;font-weight:500;color:var(--p40);margin-bottom:4px">Creating your events…</div>
+            <div style="font-size:11px;color:var(--n50)">Validating slots · writing to personal calendar</div>
+          </div>
+          <div style="background:#fff;border-radius:var(--r12);padding:12px 14px;border:1px solid var(--outline-v)">
+            <div class="confirm-event-row" style="border-radius:var(--r8);background:var(--t95);margin-bottom:6px">
+              <div class="confirm-event-icon">🏋</div>
+              <div><div class="confirm-event-name">Tempo: Gym session</div><div class="confirm-event-time">Tue · 07:00 AM · 90 min</div></div>
+              <div style="font-size:16px;color:var(--t40);margin-left:auto">✓</div>
+            </div>
+            <div class="confirm-event-row" style="border-radius:var(--r8);background:var(--surf-low);margin-bottom:6px">
+              <div class="confirm-event-icon" style="background:var(--n90)">📞</div>
+              <div><div class="confirm-event-name">Tempo: Call mum</div><div class="confirm-event-time">Tue · 03:00 PM · 30 min</div></div>
+              <div style="font-size:13px;color:var(--n50);margin-left:auto">…</div>
+            </div>
+            <div class="confirm-event-row" style="border-radius:var(--r8);background:var(--surf-low)">
+              <div class="confirm-event-icon" style="background:var(--n90)">🏋</div>
+              <div><div class="confirm-event-name">Tempo: Gym session</div><div class="confirm-event-time">Thu · 07:00 AM · 90 min</div></div>
+              <div style="font-size:13px;color:var(--n50);margin-left:auto">…</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ S12 CONFIRMATION -->
+<div class="section" id="s12">
+  <div class="sec-eyebrow">Screen 12 · Confirmation</div>
+  <h2 class="sec-title">Confirmation & Partial Failure</h2>
+  <p class="sec-desc">Success state and partial failure state. Both must be handled gracefully. API spec §4.4.</p>
+  <div class="screen-screens">
+
+    <div>
+      <div class="screen-label">Success — all events created</div>
+      <div class="phone-shell">
+        <div style="background:#fff;min-height:680px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 24px">
+          <div class="confirm-circle">✓</div>
+          <div style="font-family:var(--font-d);font-size:24px;font-weight:700;color:var(--n10);text-align:center;margin-bottom:6px">3 events added</div>
+          <div style="font-size:13px;color:var(--n50);text-align:center;margin-bottom:28px">Your personal calendar has been updated.</div>
+          <div style="width:100%;display:flex;flex-direction:column;gap:6px;margin-bottom:28px">
+            <div class="confirm-event-row">
+              <div class="confirm-event-icon">🏋</div>
+              <div><div class="confirm-event-name">Tempo: Gym session</div><div class="confirm-event-time">Tue · 07:00 AM · 90 min</div></div>
+            </div>
+            <div class="confirm-event-row">
+              <div class="confirm-event-icon">📞</div>
+              <div><div class="confirm-event-name">Tempo: Call mum</div><div class="confirm-event-time">Tue · 03:00 PM · 30 min</div></div>
+            </div>
+            <div class="confirm-event-row">
+              <div class="confirm-event-icon">🏋</div>
+              <div><div class="confirm-event-name">Tempo: Gym session</div><div class="confirm-event-time">Thu · 07:00 AM · 90 min</div></div>
+            </div>
+          </div>
+          <button class="btn btn-tonal" style="width:100%;justify-content:center;margin-bottom:8px;font-size:13px">View in Google Calendar</button>
+          <button class="btn btn-filled" style="width:100%;justify-content:center;font-size:13px">Done</button>
+        </div>
+      </div>
+      <div class="annotation"><strong>Tone of voice:</strong> "3 events added to your personal calendar ✓" — not "Success! Operation completed."</div>
+    </div>
+
+    <div>
+      <div class="screen-label">Partial failure — 2 of 3 created</div>
+      <div class="phone-shell">
+        <div style="background:#fff;min-height:680px;display:flex;flex-direction:column;align-items:center;padding:40px 24px">
+          <div class="warn-circle">⚠️</div>
+          <div style="font-family:var(--font-d);font-size:22px;font-weight:700;color:var(--n10);text-align:center;margin-bottom:6px">2 of 3 events added</div>
+          <div style="font-size:13px;color:var(--n50);text-align:center;margin-bottom:24px;line-height:1.5">Gym session couldn't be created — the slot may no longer be available.</div>
+          <div style="width:100%;margin-bottom:20px">
+            <div style="font-size:10px;font-weight:500;color:var(--n50);letter-spacing:.08em;margin-bottom:8px">ADDED ✓</div>
+            <div class="confirm-event-row"><div class="confirm-event-icon">📞</div><div><div class="confirm-event-name">Tempo: Call mum</div><div class="confirm-event-time">Tue · 03:00 PM</div></div></div>
+            <div class="confirm-event-row"><div class="confirm-event-icon">🏋</div><div><div class="confirm-event-name">Tempo: Gym session</div><div class="confirm-event-time">Thu · 07:00 AM</div></div></div>
+            <div style="font-size:10px;font-weight:500;color:var(--e40);letter-spacing:.08em;margin:12px 0 8px">FAILED ✗</div>
+            <div class="failed-row">
+              <div class="failed-icon">🏋</div>
+              <div class="failed-text"><strong>Gym session — Tue 07:00 AM</strong><br/>Slot no longer available. Tap to reschedule.</div>
+            </div>
+          </div>
+          <button class="btn btn-filled" style="width:100%;justify-content:center;margin-bottom:8px;font-size:13px">Reschedule gym →</button>
+          <button class="btn btn-text" style="width:100%;justify-content:center;font-size:12px">Skip for now</button>
+        </div>
+      </div>
+      <div class="annotation"><strong>API spec §4.4 + PRD FR-8:</strong> Partial failure handled gracefully. Report what succeeded, allow retry on what didn't. "2 of 3 events added. Gym session couldn't be created." — not "Partial success. 1 event failed."</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ S13 WEEKLY REVIEW -->
+<div class="section" id="s13">
+  <div class="sec-eyebrow">Screen 13 · Weekly Review</div>
+  <h2 class="sec-title">Weekly Review</h2>
+  <p class="sec-desc">Short, guilt-free review. What Tempo observed. Quick feedback on negatives only. Energy check. Spec §5.9.</p>
+  <div class="screen-screens">
+    <div>
+      <div class="screen-label">Weekly review — full flow</div>
+      <div class="phone-shell">
+        <div style="background:#fff;border-bottom:1px solid var(--outline-v);padding:12px 16px;display:flex;align-items:center;justify-content:space-between">
+          <div style="font-family:var(--font-ui);font-size:16px;font-weight:500">Your week with Tempo</div>
+          <div style="font-size:11px;color:var(--n50)">May 12–18</div>
+        </div>
+        <div style="background:var(--surf-mid);padding:16px;min-height:600px;display:flex;flex-direction:column;gap:12px">
+          <!-- Stats -->
+          <div style="display:flex;gap:8px">
+            <div class="review-stat"><div class="review-stat-num" style="color:var(--t40)">4</div><div class="review-stat-label">Kept ✓</div></div>
+            <div class="review-stat"><div class="review-stat-num" style="color:var(--s40)">1</div><div class="review-stat-label">Moved</div></div>
+            <div class="review-stat"><div class="review-stat-num" style="color:var(--e40)">1</div><div class="review-stat-label">Deleted</div></div>
+          </div>
+          <!-- Events list -->
+          <div style="background:#fff;border-radius:var(--r16);padding:14px 16px;border:1px solid var(--outline-v)">
+            <div style="font-size:11px;font-weight:500;color:var(--n50);letter-spacing:.06em;margin-bottom:10px">WHAT HAPPENED</div>
+            <div class="review-event-row">
+              <div class="review-event-icon re-kept">✓</div>
+              <div><div class="review-event-title">🏋 Gym — Tue 7am</div><div class="review-event-detail">Kept ✓ — great work</div></div>
+              <span class="badge b-kept">Kept</span>
+            </div>
+            <div class="review-event-row">
+              <div class="review-event-icon re-kept">✓</div>
+              <div><div class="review-event-title">🏋 Gym — Thu 7am</div><div class="review-event-detail">Kept ✓</div></div>
+              <span class="badge b-kept">Kept</span>
+            </div>
+            <div class="review-event-row">
+              <div class="review-event-icon re-moved">→</div>
+              <div><div class="review-event-title">📞 Call mum</div><div class="review-event-detail">Moved Tue 3pm → Wed 6pm</div></div>
+              <span class="badge b-moved">Moved</span>
+            </div>
+            <div class="review-event-row" style="border:none">
+              <div class="review-event-icon re-deleted">✗</div>
+              <div><div class="review-event-title">🛒 Grocery run</div><div class="review-event-detail">Deleted — not completed</div></div>
+              <span class="badge b-deleted">Deleted</span>
+            </div>
+          </div>
+          <!-- Feedback — only for negative -->
+          <div style="background:#fff;border-radius:var(--r16);padding:14px 16px;border:1px solid var(--outline-v)">
+            <div style="font-size:13px;font-weight:500;color:var(--n10);margin-bottom:4px">Grocery run didn't happen — what got in the way?</div>
+            <div style="font-size:11px;color:var(--n50);margin-bottom:10px">Optional — helps Tempo plan better next week</div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              <div class="reason-btn sel">Too busy</div>
+              <div class="reason-btn">Wrong time</div>
+              <div class="reason-btn">Not in the mood</div>
+              <div class="reason-btn">Something came up</div>
+              <div class="reason-btn">Forgot</div>
+            </div>
+          </div>
+          <!-- Energy check -->
+          <div style="background:#fff;border-radius:var(--r16);padding:14px 16px;border:1px solid var(--outline-v)">
+            <div style="font-size:13px;font-weight:500;color:var(--n10);margin-bottom:4px">How was your energy this week?</div>
+            <div style="font-size:11px;color:var(--n50);margin-bottom:10px">Helps Tempo plan next week better. Optional.</div>
+            <div style="display:flex;gap:6px">
+              <div class="energy-btn"><div class="energy-icon">😫</div><div class="energy-label">Very<br/>tired</div></div>
+              <div class="energy-btn sel"><div class="energy-icon">😐</div><div class="energy-label">Normal</div></div>
+              <div class="energy-btn"><div class="energy-icon">🙂</div><div class="energy-label">Good<br/>energy</div></div>
+              <div class="energy-btn"><div class="energy-icon">⚡</div><div class="energy-label">High<br/>energy</div></div>
+            </div>
+          </div>
+          <button class="btn btn-text" style="justify-content:center;font-size:12px">Skip review</button>
+          <button class="btn btn-filled" style="width:100%;justify-content:center;font-size:13px;padding:13px">Start next week's plan →</button>
+        </div>
+      </div>
+      <div class="annotation"><strong>Spec §5.9:</strong> Only ask about negative signals — don't quiz user on every event. Skip option always visible. Never show completion rate as a percentage — that makes users feel bad. Celebrate positives quietly, ask about negatives only.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ S14 EMPTY STATES -->
+<div class="section" id="s14">
+  <div class="sec-eyebrow">Screen 14 · Empty States</div>
+  <h2 class="sec-title">All Empty States</h2>
+  <p class="sec-desc">Every screen must have a designed empty state. Never a blank screen. Spec §5.2 / PRD FR-9.</p>
+  <div class="grid-2" style="gap:20px">
+
+    <div>
+      <div class="screen-label">First visit — no brain dump yet</div>
+      <div class="phone-shell">
+        <div class="dump-appbar"><div style="font-family:var(--font-ui);font-size:16px;font-weight:500">This week</div></div>
+        <div style="background:var(--surf-mid);min-height:500px">
+          <div class="empty-screen">
+            <div class="empty-icon">✏️</div>
+            <div class="empty-title">What do you want to make time for?</div>
+            <div class="empty-body">Type anything — errands, goals, hobbies, calls, rest. Tempo will figure out the details and find time in your calendar.</div>
+            <button class="btn btn-filled" style="gap:6px"><span>✏️</span> Start brain dump</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="screen-label">AI parse returned nothing</div>
+      <div class="phone-shell">
+        <div class="dump-appbar"><div style="font-family:var(--font-ui);font-size:16px;font-weight:500">Reading your tasks…</div></div>
+        <div style="background:var(--surf-mid);min-height:500px">
+          <div class="empty-screen">
+            <div class="empty-icon" style="background:var(--w90)">🔍</div>
+            <div class="empty-title">Couldn't find any tasks</div>
+            <div class="empty-body">Try different wording, or enter one task per line. Example:<br/><br/><em style="color:var(--p40)">"gym 3 times<br/>call mum<br/>buy groceries"</em></div>
+            <button class="btn btn-filled" style="gap:6px">Try again</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="screen-label">Plan generated — everything deferred</div>
+      <div class="phone-shell">
+        <div class="dump-appbar"><div style="font-family:var(--font-ui);font-size:16px;font-weight:500">Your plan</div></div>
+        <div style="background:var(--surf-mid);padding:16px;min-height:500px">
+          <div class="empty-screen" style="padding:28px 16px">
+            <div class="empty-icon" style="background:var(--n90);font-size:24px">📋</div>
+            <div class="empty-title">Packed week</div>
+            <div class="empty-body">Your work calendar is very full this week. Tempo couldn't find slots for your tasks without creating conflicts or overloading your schedule.</div>
+            <div style="display:flex;flex-direction:column;gap:8px;width:100%">
+              <button class="btn btn-filled" style="justify-content:center;width:100%">Carry all to next week</button>
+              <button class="btn btn-outlined" style="justify-content:center;width:100%;font-size:12px">Reschedule manually</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="annotation"><strong>PRD FR-6:</strong> Never silently drop deferred tasks. Explain why. Earliest option shown. User can always escalate ("Carry forward" or "Schedule anyway").</div>
+    </div>
+
+    <div>
+      <div class="screen-label">Monday — no plan started yet</div>
+      <div class="phone-shell">
+        <div class="dump-appbar"><div style="font-family:var(--font-ui);font-size:16px;font-weight:500">This week</div><div style="font-size:11px;color:var(--n50);margin-left:auto">Mon · May 19</div></div>
+        <div style="background:var(--surf-mid);min-height:500px">
+          <div class="empty-screen">
+            <div class="empty-icon" style="background:var(--p95)">☀️</div>
+            <div class="empty-title">New week, fresh start</div>
+            <div class="empty-body">You have 2 tasks that didn't happen last week. Want to carry them forward and add new goals?</div>
+            <button class="btn btn-filled" style="gap:6px">Start this week's plan →</button>
+          </div>
+        </div>
+      </div>
+      <div class="annotation"><strong>PRD FR-9:</strong> Monday morning re-engagement. Carry-forward surfaced with CTA. Never just show an empty screen.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ S15 ERROR STATES -->
+<div class="section" id="s15">
+  <div class="sec-eyebrow">Screen 15 · Error States</div>
+  <h2 class="sec-title">All Error States</h2>
+  <p class="sec-desc">6 API error codes, each with a specific UI response. API spec §5.2.</p>
+  <div class="grid-2" style="gap:12px">
+
+    <div style="background:#fff;border-radius:var(--r16);padding:16px;border:1px solid var(--outline-v)">
+      <div style="font-size:10px;font-weight:500;color:var(--e40);letter-spacing:.08em;margin-bottom:8px">HTTP 401 — SESSION EXPIRED</div>
+      <div class="callout err" style="margin:0"><strong>Session expired</strong>You've been logged out. Please sign in again to continue — your plan is saved.</div>
+      <div style="margin-top:10px"><button class="btn btn-filled btn-sm">Sign in again</button></div>
+    </div>
+
+    <div style="background:#fff;border-radius:var(--r16);padding:16px;border:1px solid var(--outline-v)">
+      <div style="font-size:10px;font-weight:500;color:var(--e40);letter-spacing:.08em;margin-bottom:8px">HTTP 403 — CALENDAR SCOPE MISSING</div>
+      <div class="callout err" style="margin:0"><strong>Calendar access revoked</strong>Tempo no longer has access to your calendar. Please reconnect to continue planning.</div>
+      <div style="margin-top:10px;display:flex;gap:8px"><button class="btn btn-filled btn-sm">Reconnect calendar</button><button class="btn btn-text btn-sm">Settings</button></div>
+    </div>
+
+    <div style="background:#fff;border-radius:var(--r16);padding:16px;border:1px solid var(--outline-v)">
+      <div style="font-size:10px;font-weight:500;color:var(--e40);letter-spacing:.08em;margin-bottom:8px">HTTP 409 — SLOT CONFLICT AT COMMIT</div>
+      <div class="callout err" style="margin:0"><strong>Slot no longer available</strong>Your calendar changed since the plan was generated. Gym at Tue 7am now has a conflict. Please review and pick a new time.</div>
+      <div style="margin-top:10px"><button class="btn btn-filled btn-sm">Review plan →</button></div>
+    </div>
+
+    <div style="background:#fff;border-radius:var(--r16);padding:16px;border:1px solid var(--outline-v)">
+      <div style="font-size:10px;font-weight:500;color:var(--e40);letter-spacing:.08em;margin-bottom:8px">HTTP 422 — AI PARSE FAILURE</div>
+      <div class="callout err" style="margin:0"><strong>Couldn't read your tasks</strong>Tempo couldn't extract any tasks. Try entering one task per line, or use clearer wording.</div>
+      <div style="margin-top:10px;display:flex;gap:8px"><button class="btn btn-filled btn-sm">Try again</button><button class="btn btn-text btn-sm">Get tips</button></div>
+    </div>
+
+    <div style="background:#fff;border-radius:var(--r16);padding:16px;border:1px solid var(--outline-v)">
+      <div style="font-size:10px;font-weight:500;color:var(--e40);letter-spacing:.08em;margin-bottom:8px">HTTP 429 — RATE LIMITED</div>
+      <div class="callout warn" style="margin:0"><strong>You've planned a lot today</strong>You've reached today's planning limit. Come back tomorrow to generate a new plan — your tasks are saved.</div>
+      <div style="margin-top:10px"><button class="btn btn-outlined btn-sm">View saved tasks</button></div>
+    </div>
+
+    <div style="background:#fff;border-radius:var(--r16);padding:16px;border:1px solid var(--outline-v)">
+      <div style="font-size:10px;font-weight:500;color:var(--e40);letter-spacing:.08em;margin-bottom:8px">HTTP 503 — AI UNAVAILABLE</div>
+      <div class="callout err" style="margin:0"><strong>Planning is temporarily unavailable</strong>Our AI is taking a short break. This usually resolves in a few minutes — your tasks are saved and nothing was lost.</div>
+      <div style="margin-top:10px;display:flex;gap:8px"><button class="btn btn-filled btn-sm">Try again</button><button class="btn btn-text btn-sm">Not now</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ S16 SETTINGS -->
+<div class="section" id="s16">
+  <div class="sec-eyebrow">Screen 16 · Settings</div>
+  <h2 class="sec-title">Settings</h2>
+  <p class="sec-desc">All user-editable preferences. Calendar disconnect. Data deletion. Spec §5.1 / PRD FR-3 / API §4.9.</p>
+  <div class="screen-screens">
+    <div>
+      <div class="screen-label">Settings — full screen</div>
+      <div class="phone-shell">
+        <div style="background:#fff;border-bottom:1px solid var(--outline-v);padding:12px 16px"><div style="font-family:var(--font-ui);font-size:16px;font-weight:500">Settings</div></div>
+        <div style="background:var(--surf-mid);padding:12px;min-height:580px">
+
+          <div class="settings-group">
+            <div class="settings-group-title">Connected calendars</div>
+            <div class="settings-row">
+              <div class="settings-icon">📧</div>
+              <div class="settings-text">
+                <div class="settings-label">humayun@company.com</div>
+                <div class="settings-sub">Input calendar · Read-only</div>
+              </div>
+              <span class="badge b-sched" style="font-size:9px">Connected</span>
+            </div>
+            <div class="settings-row">
+              <div class="settings-icon">👤</div>
+              <div class="settings-text">
+                <div class="settings-label">humayun@gmail.com</div>
+                <div class="settings-sub">Output calendar · Tempo writes here</div>
+              </div>
+              <span class="badge b-sched" style="font-size:9px">Connected</span>
+            </div>
+            <div class="settings-row" style="cursor:pointer">
+              <div class="settings-icon">🔌</div>
+              <div class="settings-text"><div class="settings-label" style="color:var(--e40)">Disconnect calendar</div></div>
+              <div class="settings-chevron">›</div>
+            </div>
+          </div>
+
+          <div class="settings-group">
+            <div class="settings-group-title">Planning preferences</div>
+            <div class="settings-row">
+              <div class="settings-icon">🌅</div>
+              <div class="settings-text"><div class="settings-label">Preferred task windows</div><div class="settings-sub">Mornings, Evenings</div></div>
+              <div class="settings-chevron">›</div>
+            </div>
+            <div class="settings-row">
+              <div class="settings-icon">🏋</div>
+              <div class="settings-text"><div class="settings-label">Exercise window</div><div class="settings-sub">Early morning</div></div>
+              <div class="settings-chevron">›</div>
+            </div>
+            <div class="settings-row">
+              <div class="settings-icon">⏱</div>
+              <div class="settings-text"><div class="settings-label">Minimum gap size</div><div class="settings-sub">30 minutes</div></div>
+              <div class="settings-chevron">›</div>
+            </div>
+            <div class="settings-row">
+              <div class="settings-icon">🏢</div>
+              <div class="settings-text"><div class="settings-label">Use workday gaps</div></div>
+              <div class="toggle on"><div class="toggle-knob"></div></div>
+            </div>
+          </div>
+
+          <div class="settings-group">
+            <div class="settings-group-title">Account</div>
+            <div class="settings-row">
+              <div class="settings-icon">🔒</div>
+              <div class="settings-text"><div class="settings-label">Privacy & data</div></div>
+              <div class="settings-chevron">›</div>
+            </div>
+            <div class="settings-row">
+              <div class="settings-icon">🗑</div>
+              <div class="settings-text"><div class="settings-label" style="color:var(--e40)">Delete all my data</div><div class="settings-sub">Removes preferences and history permanently</div></div>
+              <div class="settings-chevron" style="color:var(--e40)">›</div>
+            </div>
+          </div>
+          <div style="font-size:10px;color:var(--n60);text-align:center;margin-top:8px">Tempo MVP v1.0 · PMA Cohort 8</div>
+        </div>
+        <div class="bottom-nav">
+          <div class="bnav-item"><div class="bnav-pill">📅</div><div class="bnav-lbl">Plan</div></div>
+          <div class="bnav-item"><div class="bnav-pill">✏️</div><div class="bnav-lbl">Dump</div></div>
+          <div class="bnav-item"><div class="bnav-pill">📋</div><div class="bnav-lbl">Review</div></div>
+          <div class="bnav-item active"><div class="bnav-pill" style="background:var(--p90)">⚙️</div><div class="bnav-lbl" style="color:var(--p40)">Settings</div></div>
+        </div>
+      </div>
+      <div class="annotation"><strong>API §4.9:</strong> Delete preferences endpoint must be accessible from settings. Action is irreversible — confirm dialog required before executing. PRD §7 security: revocation detectable from here.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ S17 DESKTOP PLAN VIEW -->
+<div class="section" id="s17">
+  <div class="sec-eyebrow">Screen 17 · Desktop</div>
+  <h2 class="sec-title">Desktop — Weekly Plan View</h2>
+  <p class="sec-desc">7-column calendar grid. Nav rail on left. Task panel on right. Work events grey. Tempo events green. Spec §12 responsive / 1200px+.</p>
+  <div class="screen-frame">
+    <div class="desktop-shell">
+      <div class="desktop-topbar">
+        <div class="desktop-dots">
+          <div class="desktop-dot" style="background:#FF5F57"></div>
+          <div class="desktop-dot" style="background:#FEBC2E"></div>
+          <div class="desktop-dot" style="background:#28C840"></div>
+        </div>
+        <div class="desktop-url">app.tempo.ai/plan</div>
+      </div>
+      <div class="desktop-content">
+        <!-- Nav rail -->
+        <div class="app-nav-rail">
+          <div class="rail-logo">T</div>
+          <div class="rail-item active">
+            <div class="rail-icon">📅</div>
+            <div class="rail-label">Plan</div>
+          </div>
+          <div class="rail-item">
+            <div class="rail-icon">✏️</div>
+            <div class="rail-label">Dump</div>
+          </div>
+          <div class="rail-item">
+            <div class="rail-icon">📋</div>
+            <div class="rail-label">Review</div>
+          </div>
+          <div class="rail-item">
+            <div class="rail-icon">⚙️</div>
+            <div class="rail-label">Settings</div>
+          </div>
+        </div>
+
+        <!-- Calendar -->
+        <div style="flex:1;background:var(--surf-mid);overflow:hidden;display:flex;flex-direction:column">
+          <!-- Calendar header -->
+          <div style="background:#fff;border-bottom:1px solid var(--outline-v);padding:12px 16px;display:flex;align-items:center;justify-content:space-between">
+            <div>
+              <div style="font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--n10)">May 2026</div>
+              <div style="font-size:11px;color:var(--n50)">Week 20 · 4 events scheduled</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px">
+              <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--n50)"><div style="width:10px;height:10px;border-radius:2px;background:var(--surf-highest);border-left:3px solid var(--n60)"></div>Work</div>
+              <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--n50)"><div style="width:10px;height:10px;border-radius:2px;background:var(--t95);border-left:3px solid var(--t40)"></div>Tempo</div>
+              <button class="btn btn-outlined btn-sm" style="font-size:11px">Regenerate</button>
+              <button class="btn btn-filled btn-sm" style="font-size:11px">Add to calendar →</button>
+            </div>
+          </div>
+
+          <!-- 7-col grid -->
+          <div style="overflow-y:auto;flex:1">
+            <div class="cal-grid">
+              <!-- Headers -->
+              <div class="cal-time" style="height:40px;background:var(--surf-low);border-bottom:1px solid var(--outline-v);border-right:1px solid var(--outline-v)"></div>
+              <div class="cal-head-cell">
+                <div style="font-size:10px;color:var(--n50)">MON</div>
+                <div class="cal-head-date">12</div>
+              </div>
+              <div class="cal-head-cell today">
+                <div style="font-size:10px;color:var(--p40)">TUE</div>
+                <div class="cal-head-date">13</div>
+              </div>
+              <div class="cal-head-cell">
+                <div style="font-size:10px;color:var(--n50)">WED</div>
+                <div class="cal-head-date">14</div>
+              </div>
+              <div class="cal-head-cell">
+                <div style="font-size:10px;color:var(--n50)">THU</div>
+                <div class="cal-head-date">15</div>
+              </div>
+              <div class="cal-head-cell">
+                <div style="font-size:10px;color:var(--n50)">FRI</div>
+                <div class="cal-head-date">16</div>
+              </div>
+              <div class="cal-head-cell">
+                <div style="font-size:10px;color:var(--n50)">SAT</div>
+                <div class="cal-head-date">17</div>
+              </div>
+              <div class="cal-head-cell">
+                <div style="font-size:10px;color:var(--n50)">SUN</div>
+                <div class="cal-head-date">18</div>
+              </div>
+
+              <!-- 07:00 row -->
+              <div class="cal-time-slot">7 AM</div>
+              <div class="cal-col" style="position:relative">
+                <div class="cal-slot"></div>
+                <div class="cal-event cal-event-work" style="top:2px;height:44px">09:00 Standup</div>
+              </div>
+              <div class="cal-col" style="position:relative">
+                <div class="cal-slot"></div>
+                <div class="cal-event cal-event-tempo" style="top:2px;height:88px">🏋 07:00<br/>Gym · 90min</div>
+              </div>
+              <div class="cal-col"><div class="cal-slot"></div></div>
+              <div class="cal-col" style="position:relative">
+                <div class="cal-slot"></div>
+                <div class="cal-event cal-event-tempo" style="top:2px;height:88px">🏋 07:00<br/>Gym · 90min</div>
+              </div>
+              <div class="cal-col"><div class="cal-slot"></div></div>
+              <div class="cal-col"><div class="cal-slot"></div></div>
+              <div class="cal-col"><div class="cal-slot"></div></div>
+
+              <!-- 09:00 row -->
+              <div class="cal-time-slot">9 AM</div>
+              <div class="cal-col" style="position:relative">
+                <div class="cal-slot"></div>
+                <div class="cal-event cal-event-work" style="top:2px;height:44px">09:00 Standup</div>
+              </div>
+              <div class="cal-col"><div class="cal-slot"></div></div>
+              <div class="cal-col" style="position:relative">
+                <div class="cal-slot"></div>
+                <div class="cal-event cal-event-work" style="top:2px;height:44px">All-hands</div>
+              </div>
+              <div class="cal-col"><div class="cal-slot"></div></div>
+              <div class="cal-col" style="position:relative">
+                <div class="cal-slot"></div>
+                <div class="cal-event cal-event-work" style="top:2px;height:44px">09:00 Demo</div>
+              </div>
+              <div class="cal-col"><div class="cal-slot"></div></div>
+              <div class="cal-col"><div class="cal-slot"></div></div>
+
+              <!-- 11:00 row -->
+              <div class="cal-time-slot">11 AM</div>
+              <div class="cal-col" style="position:relative">
+                <div class="cal-slot"></div>
+                <div class="cal-event cal-event-work" style="top:2px;height:44px">Client call</div>
+              </div>
+              <div class="cal-col"><div class="cal-slot"></div></div>
+              <div class="cal-col" style="position:relative">
+                <div class="cal-slot"></div>
+                <div class="cal-event cal-event-work" style="top:2px;height:88px">Workshop</div>
+              </div>
+              <div class="cal-col"><div class="cal-slot"></div></div>
+              <div class="cal-col"><div class="cal-slot"></div></div>
+              <div class="cal-col"><div class="cal-slot"></div></div>
+              <div class="cal-col"><div class="cal-slot"></div></div>
+
+              <!-- 13:00 row -->
+              <div class="cal-time-slot">1 PM</div>
+              <div class="cal-col"><div class="cal-slot"></div></div>
+              <div class="cal-col"><div class="cal-slot"></div></div>
+              <div class="cal-col"><div class="cal-slot"></div></div>
+              <div class="cal-col"><div class="cal-slot"></div></div>
+              <div class="cal-col"><div class="cal-slot"></div></div>
+              <div class="cal-col"><div class="cal-slot"></div></div>
+              <div class="cal-col"><div class="cal-slot"></div></div>
+
+              <!-- 15:00 row -->
+              <div class="cal-time-slot">3 PM</div>
+              <div class="cal-col"><div class="cal-slot"></div></div>
+              <div class="cal-col" style="position:relative">
+                <div class="cal-slot"></div>
+                <div class="cal-event cal-event-tempo" style="top:2px;height:44px">📞 Call mum<br/>30min</div>
+              </div>
+              <div class="cal-col"><div class="cal-slot"></div></div>
+              <div class="cal-col"><div class="cal-slot"></div></div>
+              <div class="cal-col"><div class="cal-slot"></div></div>
+              <div class="cal-col"><div class="cal-slot"></div></div>
+              <div class="cal-col"><div class="cal-slot"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right panel — task list -->
+        <div style="width:260px;background:#fff;border-left:1px solid var(--outline-v);padding:16px;overflow-y:auto">
+          <div style="font-size:11px;font-weight:500;color:var(--n50);letter-spacing:.08em;margin-bottom:12px">THIS WEEK'S TASKS</div>
+          <div class="task-card tc-sched" style="margin-bottom:8px">
+            <div class="tc-top"><div class="tc-title" style="font-size:12px">🏋 Gym (×2)</div><span class="badge b-sched" style="font-size:9px">✓</span></div>
+            <div class="tc-meta" style="font-size:10px"><span>90min</span><span>Tue + Thu</span></div>
+          </div>
+          <div class="task-card tc-sched" style="margin-bottom:8px">
+            <div class="tc-top"><div class="tc-title" style="font-size:12px">📞 Call mum</div><span class="badge b-sched" style="font-size:9px">✓</span></div>
+            <div class="tc-meta" style="font-size:10px"><span>30min</span><span>Tue 3pm</span></div>
+          </div>
+          <div class="task-card tc-defer" style="margin-bottom:8px">
+            <div class="tc-top"><div class="tc-title" style="font-size:12px">🛒 Groceries</div><span class="badge b-defer" style="font-size:9px">Deferred</span></div>
+            <div class="tc-reason" style="font-size:10px">No 60min slot this week.</div>
+            <button class="btn btn-text btn-sm" style="font-size:10px;padding:4px 0">Next week →</button>
+          </div>
+          <div class="divider"></div>
+          <div style="font-size:10px;color:var(--n50);text-align:center;margin:8px 0">3 scheduled · 1 deferred</div>
+          <button class="btn btn-filled" style="width:100%;justify-content:center;font-size:12px;padding:10px;margin-top:8px">Add to calendar →</button>
+          <div style="font-size:10px;color:var(--n50);text-align:center;margin-top:6px">Accept All unlocks after you review at least one event</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="annotation"><strong>Spec §12 desktop:</strong> Calendar grid left (7 columns), task panel right (260px persistent). Work events grey. Tempo events green. Nav rail with labels. "Accept All" note visible — per PRD FR-7 it's locked until first edit.</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ S18 DESKTOP REVIEW -->
+<div class="section" id="s18">
+  <div class="sec-eyebrow">Screen 18 · Desktop</div>
+  <h2 class="sec-title">Desktop — Brain Dump</h2>
+  <p class="sec-desc">Left panel: brain dump input. Right panel: last week's summary. Desktop 1200px+ layout. Spec §12 responsive.</p>
+  <div class="screen-frame">
+    <div class="desktop-shell">
+      <div class="desktop-topbar">
+        <div class="desktop-dots">
+          <div class="desktop-dot" style="background:#FF5F57"></div>
+          <div class="desktop-dot" style="background:#FEBC2E"></div>
+          <div class="desktop-dot" style="background:#28C840"></div>
+        </div>
+        <div class="desktop-url">app.tempo.ai/brain-dump</div>
+      </div>
+      <div class="desktop-content">
+        <div class="app-nav-rail">
+          <div class="rail-logo">T</div>
+          <div class="rail-item"><div class="rail-icon">📅</div><div class="rail-label">Plan</div></div>
+          <div class="rail-item active"><div class="rail-icon">✏️</div><div class="rail-label">Dump</div></div>
+          <div class="rail-item"><div class="rail-icon">📋</div><div class="rail-label">Review</div></div>
+          <div class="rail-item"><div class="rail-icon">⚙️</div><div class="rail-label">Settings</div></div>
+        </div>
+
+        <!-- Left: brain dump -->
+        <div style="flex:1;background:#fff;padding:32px 40px;border-right:1px solid var(--outline-v)">
+          <div style="font-family:var(--font-d);font-size:26px;font-weight:700;color:var(--n10);margin-bottom:6px;letter-spacing:-.4px">What do you want to<br/>make time for this week?</div>
+          <div style="font-size:13px;color:var(--n50);margin-bottom:24px;line-height:1.6">Type anything — errands, goals, hobbies, calls, rest. Tempo will figure out the details and fit them into your calendar.</div>
+          <div style="background:var(--surf-highest);border-radius:var(--r12);padding:20px;min-height:200px;margin-bottom:12px">
+            <textarea style="width:100%;border:none;outline:none;resize:none;font-family:var(--font-body);font-size:14px;color:var(--n10);line-height:1.7;min-height:180px;background:transparent" placeholder="gym 3 times, call mum, buy groceries, book dentist, read for 30 mins every evening…">gym 3 times, call mum, buy groceries, read for 30 mins</textarea>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div style="font-size:11px;color:var(--n60);font-family:var(--font-mono)">58 / 2,000 chars</div>
+            <button class="btn btn-filled" style="gap:8px;font-size:13px">Parse tasks →</button>
+          </div>
+          <div style="margin-top:20px">
+            <div style="font-size:11px;color:var(--n50);margin-bottom:8px">QUICK ADD</div>
+            <div class="chip-row">
+              <div class="chip">🏋 gym 3×</div>
+              <div class="chip">📞 call mum</div>
+              <div class="chip">🛒 groceries</div>
+              <div class="chip">📚 read daily</div>
+              <div class="chip">🦷 dentist</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: last week summary -->
+        <div style="width:300px;background:var(--surf-low);padding:24px 20px;overflow-y:auto">
+          <div style="font-size:11px;font-weight:500;color:var(--n50);letter-spacing:.08em;margin-bottom:14px">LAST WEEK — MAY 5–11</div>
+          <div style="display:flex;gap:8px;margin-bottom:16px">
+            <div class="review-stat" style="padding:10px 8px"><div class="review-stat-num" style="color:var(--t40);font-size:20px">4</div><div class="review-stat-label">Kept</div></div>
+            <div class="review-stat" style="padding:10px 8px"><div class="review-stat-num" style="color:var(--s40);font-size:20px">1</div><div class="review-stat-label">Moved</div></div>
+            <div class="review-stat" style="padding:10px 8px"><div class="review-stat-num" style="color:var(--e40);font-size:20px">1</div><div class="review-stat-label">Deleted</div></div>
+          </div>
+          <div style="font-size:11px;font-weight:500;color:var(--n50);letter-spacing:.06em;margin-bottom:8px">DIDN'T HAPPEN</div>
+          <div class="task-card tc-defer" style="margin-bottom:8px">
+            <div class="tc-top"><div class="tc-title" style="font-size:12px">🛒 Grocery run</div></div>
+            <div class="tc-reason" style="font-size:10px">Deleted last week. Added to this week's dump.</div>
+          </div>
+          <div style="margin-top:16px;padding:12px;background:#fff;border-radius:var(--r12);border:1px solid var(--outline-v)">
+            <div style="font-size:11px;color:var(--n50);margin-bottom:4px">Energy last week</div>
+            <div style="font-size:20px">😐 Normal</div>
+          </div>
+          <div style="margin-top:16px;padding:12px;background:#fff;border-radius:var(--r12);border:1px solid var(--outline-v)">
+            <div style="font-size:11px;color:var(--n50);margin-bottom:6px">This week's calendar</div>
+            <div style="font-size:12px;color:var(--n30);line-height:1.6">Heavy Monday + Tuesday.<br/>Lighter Thu–Fri.<br/>Weekend free.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="annotation"><strong>Spec §12 desktop:</strong> Brain dump left panel (textarea + quick-add chips). Right panel shows last week summary — kept/moved/deleted counts, energy signal, calendar density preview. All informs the new brain dump without interrupting it.</div>
+</div>
+
+<!-- FOOTER -->
+<div style="background:var(--p20);padding:40px 64px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
+  <div>
+    <div style="font-family:var(--font-d);font-size:20px;font-weight:700;color:#fff;margin-bottom:4px">Tempo MVP — Full Mockup</div>
+    <div style="font-size:12px;color:rgba(255,255,255,.5)">18 screens · All phases · All states · PRD + Spec aligned</div>
+  </div>
+  <div style="display:flex;gap:16px;flex-wrap:wrap">
+    <div style="font-size:11px;color:rgba(255,255,255,.5)">Spec §5.1–5.9 ✓</div>
+    <div style="font-size:11px;color:rgba(255,255,255,.5)">PRD FR-1–FR-9 ✓</div>
+    <div style="font-size:11px;color:rgba(255,255,255,.5)">API §4.1–4.9 ✓</div>
+    <div style="font-size:11px;color:rgba(255,255,255,.5)">PMA Cohort 8 · Demo Day Jun 16</div>
+  </div>
+</div>
+
+</div><!-- end main -->
+</div><!-- end shell -->
+
+<style>
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+
+<script>
+// Active nav on scroll
+const sections=document.querySelectorAll('.section[id]');
+const navAs=document.querySelectorAll('.nav-a');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-140)cur=s.id});
+  navAs.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+cur)});
+},{passive:true});
+navAs.forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+</script>
+</body>
+</html>
